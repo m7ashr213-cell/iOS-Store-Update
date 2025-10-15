@@ -1,3 +1,5 @@
+[file name]: ios store.txt
+[file content begin]
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -276,6 +278,7 @@
         .picsart-icon { background: linear-gradient(135deg, #6A11CB, #2575FC); }
         .youtube-icon { background: linear-gradient(135deg, #FF0000, #CC0000); }
         .spotify-icon { background: linear-gradient(135deg, #1DB954, #1ED760); }
+        .thispc-icon { background: linear-gradient(135deg, #0078D7, #00A2F3); }
         .iosapps-icon { 
             background: linear-gradient(135deg, #8B4513, #A0522D);
             position: relative;
@@ -561,6 +564,7 @@
         .picsart-icon { background: linear-gradient(135deg, #6A11CB, #2575FC); }
         .youtube-icon { background: linear-gradient(135deg, #FF0000, #CC0000); }
         .spotify-icon { background: linear-gradient(135deg, #1DB954, #1ED760); }
+        .thispc-icon { background: linear-gradient(135deg, #0078D7, #00A2F3); }
         .iosapps-icon { 
             background: linear-gradient(135deg, #8B4513, #A0522D);
             position: relative;
@@ -1158,7 +1162,21 @@
                     <button class="get-now-btn" data-app="spotify">Get Now</button>
                 </div>
 
-                <!-- App 10 - iOS Apps -->
+                <!-- App 10 - This PC -->
+                <div class="app-item">
+                    <div class="app-info">
+                        <div class="app-icon thispc-icon">
+                        <i class="fas fa-laptop"></i>
+                          </div>
+                        <div class="app-details">
+                            <h3>This PC</h3>
+                            <p>Transform your iPhone into a computer experience</p>
+                        </div>
+                    </div>
+                    <button class="get-now-btn" data-app="thispc">Get Now</button>
+                </div>
+
+                <!-- App 11 - iOS Apps -->
                 <div class="app-item">
                     <div class="app-info">
                         <div class="app-icon iosapps-icon">
@@ -1187,7 +1205,7 @@
         </section>
 
         <footer>
-            <p>© 2023 iOS Store. All rights reserved.</p>
+            <p>© Mohamed Ashraf . All rights reserved.</p>
         </footer>
     </div>
 
@@ -1318,6 +1336,19 @@
                 iconClass: "fab fa-spotify",
                 iconColor: "spotify-icon",
                 link: "https://m7ashr213-cell.github.io/iOS-Store-Spotify/"
+            },
+            thispc: {
+                title: "This PC",
+                description: "حول هاتفك إلى كمبيوتر شخصي مع واجهة مشابهة لنظام Windows",
+                features: [
+                    "واجهة مستخدم مشابهة لنظام Windows",
+                    "إدارة الملفات والمجلدات بسهولة",
+                    "تشغيل التطبيقات بنظام الكمبيوتر",
+                    "تجربة مستخدم احترافية ومتطورة"
+                ],
+                iconClass: "fas fa-laptop",
+                iconColor: "thispc-icon",
+                link: "https://m7ashr213-cell.github.io/iOS-Store-This-PC/"
             },
             iosapps: {
                 title: "iOS Apps",
