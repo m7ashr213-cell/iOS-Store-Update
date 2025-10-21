@@ -292,6 +292,21 @@
             transform: translate(-50%, -50%);
         }
 
+        .watchedapps-icon {
+            background: linear-gradient(135deg, #000000, #333333);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .watchedapps-icon::before {
+            content: "🎬";
+            font-size: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
         .option-details h3 {
             font-size: 1.1rem;
             margin-bottom: 5px;
@@ -479,7 +494,7 @@
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
         }
 
-        /* Apps Section - التعديلات الرئيسية هنا */
+        /* Apps Section */
         .apps-container {
             background-color: var(--card-color);
             border-radius: 16px;
@@ -497,20 +512,20 @@
         }
 
         .apps-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            display: flex;
+            flex-direction: column;
             gap: 15px;
         }
 
         .app-item {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
             padding: 15px;
             background-color: var(--background-color);
             border-radius: 14px;
             transition: var(--transition);
             border: 1px solid rgba(255,255,255,0.1);
-            height: 100%;
         }
 
         .app-item:hover {
@@ -523,7 +538,6 @@
             align-items: center;
             gap: 15px;
             flex: 1;
-            margin-bottom: 15px;
         }
 
         .app-icon {
@@ -579,6 +593,21 @@
             transform: translate(-50%, -50%);
         }
 
+        .watchedapps-icon { 
+            background: linear-gradient(135deg, #000000, #333333);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .watchedapps-icon::before {
+            content: "🎬";
+            font-size: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
         .app-details h3 {
             font-size: 1.1rem;
             margin-bottom: 5px;
@@ -603,8 +632,6 @@
             border: none;
             cursor: pointer;
             flex-shrink: 0;
-            align-self: flex-start;
-            border: 1px solid var(--primary-color);
         }
 
         .get-now-btn:hover {
@@ -802,10 +829,6 @@
                 padding: 18px;
             }
 
-            .apps-list {
-                grid-template-columns: 1fr;
-            }
-
             .app-item {
                 flex-direction: row;
                 align-items: center;
@@ -814,7 +837,6 @@
 
             .app-info {
                 gap: 12px;
-                margin-bottom: 0;
             }
 
             .app-icon {
@@ -824,6 +846,10 @@
             }
 
             .iosapps-icon::before {
+                font-size: 18px;
+            }
+
+            .watchedapps-icon::before {
                 font-size: 18px;
             }
 
@@ -1195,6 +1221,20 @@
                     </div>
                     <button class="get-now-btn" data-app="iosapps">Get Now</button>
                 </div>
+
+                <!-- App 12 - Watched Apps -->
+                <div class="app-item">
+                    <div class="app-info">
+                        <div class="app-icon watchedapps-icon">
+                            <!-- 🎬 ايموجي في النص -->
+                        </div>
+                        <div class="app-details">
+                            <h3>Watched Apps</h3>
+                            <p>تطبيقات لمشاهدة الأفلام والمسلسلات</p>
+                        </div>
+                    </div>
+                    <button class="get-now-btn" data-app="watchedapps">Get Now</button>
+                </div>
             </div>
         </section>
 
@@ -1250,94 +1290,94 @@
                 ],
                 iconClass: "fab fa-instagram",
                 iconColor: "instagram-icon",
-                link: "https://m7ashr213-cell.github.io/iOS-Store-iOS-Instagram-Web/"
+                link: "https://m7ashr213-cell.github.io/iOS-Store-Instagram/"
             },
             telegram: {
                 title: "iOS Telegram",
-                description: "تطبيق مراسلة فوري سريع وآمن مع ميزات متقدمة",
+                description: "نسخة محسنة من تطبيق Telegram مع ميزات إضافية",
                 features: [
-                    "رسائل سرية ذاتية التدمير",
-                    "مكالمات صوتية وفيديو عالية الجودة",
-                    "دعم للمجموعات الكبيرة حتى 200,000 عضو",
-                    "مزامنة فورية عبر جميع الأجهزة"
+                    "ميزات إضافية غير متوفرة في النسخة الرسمية",
+                    "واجهة مستخدم محسنة",
+                    "خيارات تخصيص متقدمة",
+                    "أداء أسرع واستهلاك أقل للبطارية"
                 ],
                 iconClass: "fab fa-telegram",
                 iconColor: "telegram-icon",
-                link: "https://m7ashr213-cell.github.io/iOS-Store-iOS-Telegram-/"
+                link: "https://m7ashr213-cell.github.io/iOS-Store-Telegram/"
             },
             tiktok: {
                 title: "iOS TikTok",
-                description: "منصة الفيديوهات القصيرة الرائدة مع تحسينات حصرية",
+                description: "نسخة محسنة من تطبيق TikTok مع مميزات حصرية",
                 features: [
                     "تحميل الفيديوهات بدون علامة مائية",
-                    "مشاهدة فيديوهات بدون إعلانات متقطعة",
-                    "إمكانية استخدام جميع المؤثرات مجاناً",
-                    "واجهة مستخدم محسنة وسريعة"
+                    "إزالة الإعلانات المزعجة",
+                    "ميزات تحرير فيديو إضافية",
+                    "واجهة مستخدم محسنة"
                 ],
                 iconClass: "fab fa-tiktok",
                 iconColor: "tiktok-icon",
-                link: "https://m7ashr213-cell.github.io/iOS-Store-iOS-TikTok-Web/"
+                link: "https://m7ashr213-cell.github.io/iOS-Store-TikTok/"
             },
             capcut: {
                 title: "CapCut Pro",
-                description: "تطبيق تحرير الفيديوهات الاحترافي مع جميع الميزات المميزة مفعلة",
+                description: "الإصدار الاحترافي من تطبيق تحرير الفيديو مع جميع الميزات المفتوحة",
                 features: [
-                    "جميع المؤثرات والفلترات متاحة مجاناً",
-                    "إزالة العلامة المائية بشكل تلقائي",
-                    "دعم تصدير الفيديوهات بدقة 4K",
-                    "مكتبة موسيقى خلفية شاملة بدون قيود"
+                    "جميع الإضافات والتصفيات مفتوحة",
+                    "إزالة علامة المياه",
+                    "تصدير بدقة 4K",
+                    "جميع المؤثرات الاحترافية متاحة"
                 ],
                 iconClass: "fas fa-scissors",
                 iconColor: "capcut-icon",
-                link: "https://m7ashr213-cell.github.io/ios-store-develope-site/"
+                link: "https://m7ashr213-cell.github.io/iOS-Store-CapCut/"
             },
             inshot: {
                 title: "InShot Pro",
-                description: "تطبيق تحرير فيديو متقدم مع إزالة العلامة المائية",
+                description: "تطبيق تحرير الفيديو الاحترافي مع جميع الميزات المميزة",
                 features: [
-                    "تحرير فيديو بدون علامة مائية",
-                    "جميع الملصقات والمرشحات متاحة",
-                    "إضافة موسيقى ومؤثرات صوتية متقدمة",
-                    "تصدير بدقة عالية وسرعة معالجة فائقة"
+                    "إزالة العلامة المائية",
+                    "جميع الإضافات والتصفيات مفتوحة",
+                    "مؤثرات انتقالية حصرية",
+                    "تصدير بدقة عالية"
                 ],
                 iconClass: "fas fa-film",
                 iconColor: "inshot-icon",
-                link: "https://m7ashr213-cell.github.io/iOS-Store-InShot-Pro/"
+                link: "https://m7ashr213-cell.github.io/iOS-Store-InShot/"
             },
             picsart: {
                 title: "Picsart Pro",
-                description: "تطبيق تحرير الصور الشامل مع جميع الميزات المميزة مفعلة",
+                description: "الإصدار الاحترافي من تطبيق تحرير الصور مع جميع الميزات",
                 features: [
-                    "جميع أدوات التحرير والفلترات متاحة",
-                    "مكتبة ملصقات ورسومات غير محدودة",
-                    "إزالة الخلفية والخلفيات الذكية",
-                    "تصدير الصور بدقة عالية بدون علامة مائية"
+                    "جميع الأدوات والتصفيات مفتوحة",
+                    "إزالة العلامة المائية",
+                    "مكتبة ضخمة من الملصقات والخطوط",
+                    "أدوات تحرير متقدمة"
                 ],
                 iconClass: "fas fa-paint-brush",
                 iconColor: "picsart-icon",
-                link: "https://m7ashr213-cell.github.io/iOS-Store-Picsart-Pro/"
+                link: "https://m7ashr213-cell.github.io/iOS-Store-Picsart/"
             },
             youtube: {
                 title: "YouTube Premium",
-                description: "استمتع بتجربة يوتيوب بدون إعلانات مع ميزات إضافية",
+                description: "تجربة يوتيوب بدون إعلانات مع ميزات إضافية",
                 features: [
-                    "مشاهدة فيديوهات بدون إعلانات متقطعة",
-                    "تشغيل الفيديوهات في الخلفية",
-                    "تحميل الفيديوهات لمشاهدتها بدون إنترنت",
-                    "دعم جودة الفيديو حتى 4K"
+                    "تشغيل الفيديوهات بدون إعلانات",
+                    "التشغيل في الخلفية",
+                    "تحميل الفيديوهات للمشاهدة Offline",
+                    "واجهة مستخدم محسنة"
                 ],
                 iconClass: "fab fa-youtube",
                 iconColor: "youtube-icon",
-                link: "https://m7ashr213-cell.github.io/iOS-Store-YouTube-Premioum/"
+                link: "https://m7ashr213-cell.github.io/iOS-Store-YouTube/"
             },
             spotify: {
                 title: "Spotify Premium",
-                description: "استمع إلى الموسيقى بدون إعلانات مع ميزات متقدمة",
+                description: "الإصدار المميز من Spotify مع جميع الميزات",
                 features: [
-                    "استماع إلى الموسيقى بدون إعلانات",
-                    "إمكانية تخطي الأغاني بدون حدود",
-                    "تحميل الأغاني للاستماع بدون إنترنت",
-                    "جودة صوت عالية ومميزات تحكم متقدمة"
+                    "استماع بدون إعلانات",
+                    "القفز غير المحدود بين الأغاني",
+                    "تحميل الموسيقى للاستماع Offline",
+                    "جودة صوت عالية"
                 ],
                 iconClass: "fab fa-spotify",
                 iconColor: "spotify-icon",
@@ -1345,12 +1385,12 @@
             },
             thispc: {
                 title: "This PC",
-                description: "حول هاتفك إلى كمبيوتر شخصي مع واجهة مشابهة لنظام Windows",
+                description: "حول جهاز iPhone الخاص بك إلى تجربة كمبيوتر متكاملة",
                 features: [
-                    "واجهة مستخدم مشابهة لنظام Windows",
-                    "إدارة الملفات والمجلدات بسهولة",
-                    "تشغيل التطبيقات بنظام الكمبيوتر",
-                    "تجربة مستخدم احترافية ومتطورة"
+                    "واجهة مستخدم تشبه نظام Windows",
+                    "إدارة الملفات المتقدمة",
+                    "أدوات نظام متعددة",
+                    "تجربة مستخدم فريدة"
                 ],
                 iconClass: "fas fa-laptop",
                 iconColor: "thispc-icon",
@@ -1360,158 +1400,193 @@
                 title: "iOS Apps",
                 description: "مجموعة شاملة من تطبيقات iOS والأدوات المساعدة",
                 features: [
-                    "مجموعة متنوعة من التطبيقات المميزة",
-                    "تحديثات مستمرة للتطبيقات",
-                    "واجهة مستخدم بسيطة وسهلة الاستخدام",
-                    "دعم كامل لأحدث إصدارات iOS"
+                    "مجموعة متنوعة من التطبيقات",
+                    "تطبيقات نظام محسنة",
+                    "أدوات مساعدة متعددة",
+                    "تحديثات مستمرة"
                 ],
                 iconClass: "fas fa-mobile-alt",
                 iconColor: "iosapps-icon",
                 link: "https://m7ashr213-cell.github.io/iOS-Store-iOS-Apps/"
+            },
+            watchedapps: {
+                title: "Watched Apps",
+                description: "تطبيقات لمشاهدة الأفلام والمسلسلات مجاناً",
+                features: [
+                    "مجموعة متنوعة من تطبيقات المشاهدة",
+                    "بدون إعلانات مزعجة",
+                    "جودة عالية للفيديوهات",
+                    "واجهة مستخدم بسيطة وسهلة"
+                ],
+                iconClass: "fas fa-video",
+                iconColor: "watchedapps-icon",
+                link: "https://m7ashr213-cell.github.io/iOS-Store-Watched-Apps/"
             }
         };
 
-        // Theme Toggle
-        const themeToggle = document.getElementById('themeToggle');
-        const body = document.body;
-        
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('light-mode');
-            
-            if (body.classList.contains('light-mode')) {
-                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-            } else {
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-            }
-        });
-
-        // Welcome Modal
+        // DOM Elements
         const welcomeModal = document.getElementById('welcomeModal');
-        const closeWelcomeModal = document.getElementById('closeWelcomeModal');
-        
-        // Close modal when X is clicked
-        closeWelcomeModal.addEventListener('click', () => {
-            welcomeModal.classList.remove('active');
-        });
-        
-        // Close modal when clicking outside content
-        welcomeModal.addEventListener('click', (e) => {
-            if (e.target === welcomeModal) {
-                welcomeModal.classList.remove('active');
-            }
-        });
-
-        // Auto close modal after 5 seconds
-        setTimeout(() => {
-            welcomeModal.classList.remove('active');
-        }, 5000);
-
-        // Download Modal (for WhatsApp only)
         const downloadModal = document.getElementById('downloadModal');
+        const appDetailModal = document.getElementById('appDetailModal');
+        const closeWelcomeModal = document.getElementById('closeWelcomeModal');
         const closeDownloadModal = document.getElementById('closeDownloadModal');
+        const closeAppDetailModal = document.getElementById('closeAppDetailModal');
+        const themeToggle = document.getElementById('themeToggle');
+        const getNowButtons = document.querySelectorAll('.get-now-btn');
+        const downloadOptions = document.getElementById('downloadOptions');
         const modalAppTitle = document.getElementById('modalAppTitle');
         const modalAppDescription = document.getElementById('modalAppDescription');
-        const downloadOptions = document.getElementById('downloadOptions');
-        const whatsappButton = document.querySelector('[data-app="whatsapp"]');
-        
-        // Open modal when WhatsApp Get Now is clicked
-        if (whatsappButton) {
-            whatsappButton.addEventListener('click', () => {
-                const app = appData.whatsapp;
-                
-                if (app) {
-                    modalAppTitle.textContent = app.title;
-                    modalAppDescription.textContent = app.description;
-                    
-                    // Clear previous options
-                    downloadOptions.innerHTML = '';
-                    
-                    // Add new options
-                    app.options.forEach(option => {
-                        const optionElement = document.createElement('div');
-                        optionElement.className = 'download-option';
-                        optionElement.innerHTML = `
-                            <div class="option-info">
-                                <div class="option-icon ${option.icon}">
-                                    <i class="${option.iconClass}"></i>
-                                </div>
-                                <div class="option-details">
-                                    <h3>${option.name}</h3>
-                                    <p>${option.description}</p>
-                                </div>
-                            </div>
-                            <a href="${option.link}" class="download-btn" target="_blank">Get Now</a>
-                        `;
-                        downloadOptions.appendChild(optionElement);
-                    });
-                    
-                    downloadModal.classList.add('active');
-                }
-            });
-        }
-        
-        // Close modal when X is clicked
-        closeDownloadModal.addEventListener('click', () => {
-            downloadModal.classList.remove('active');
-        });
-        
-        // Close modal when clicking outside content
-        downloadModal.addEventListener('click', (e) => {
-            if (e.target === downloadModal) {
-                downloadModal.classList.remove('active');
-            }
-        });
-
-        // App Detail Modal
-        const appDetailModal = document.getElementById('appDetailModal');
-        const closeAppDetailModal = document.getElementById('closeAppDetailModal');
         const appDetailTitle = document.getElementById('appDetailTitle');
         const appDetailDescription = document.getElementById('appDetailDescription');
         const appDetailIcon = document.getElementById('appDetailIcon');
         const appFeaturesList = document.getElementById('appFeaturesList');
         const appDetailDownloadLink = document.getElementById('appDetailDownloadLink');
-        
-        // Get all app buttons except WhatsApp
-        const appButtons = document.querySelectorAll('.get-now-btn[data-app]:not([data-app="whatsapp"])');
-        
-        // Add event listeners to app buttons
-        appButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const appId = button.getAttribute('data-app');
-                const app = appData[appId];
-                
-                if (app) {
-                    appDetailTitle.textContent = app.title;
-                    appDetailDescription.textContent = app.description;
-                    appDetailIcon.className = `app-detail-icon ${app.iconColor}`;
-                    appDetailIcon.innerHTML = `<i class="${app.iconClass}"></i>`;
-                    appDetailDownloadLink.href = app.link;
-                    
-                    // Clear previous features
-                    appFeaturesList.innerHTML = '';
-                    
-                    // Add new features
-                    app.features.forEach(feature => {
-                        const featureElement = document.createElement('li');
-                        featureElement.textContent = feature;
-                        appFeaturesList.appendChild(featureElement);
-                    });
-                    
-                    appDetailModal.classList.add('active');
-                }
-            });
+
+        // Theme Toggle
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            const icon = themeToggle.querySelector('i');
+            if (document.body.classList.contains('light-mode')) {
+                icon.className = 'fas fa-moon';
+            } else {
+                icon.className = 'fas fa-sun';
+            }
         });
-        
-        // Close modal when X is clicked
+
+        // Close Welcome Modal
+        closeWelcomeModal.addEventListener('click', () => {
+            welcomeModal.classList.remove('active');
+        });
+
+        // Close Download Modal
+        closeDownloadModal.addEventListener('click', () => {
+            downloadModal.classList.remove('active');
+        });
+
+        // Close App Detail Modal
         closeAppDetailModal.addEventListener('click', () => {
             appDetailModal.classList.remove('active');
         });
-        
-        // Close modal when clicking outside content
-        appDetailModal.addEventListener('click', (e) => {
-            if (e.target === appDetailModal) {
+
+        // Close modals when clicking outside
+        [welcomeModal, downloadModal, appDetailModal].forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        });
+
+        // Handle Get Now buttons
+        getNowButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const appName = e.target.getAttribute('data-app');
+                
+                if (appName === 'whatsapp') {
+                    // Show download options for WhatsApp
+                    showDownloadModal(appName);
+                } else {
+                    // Show app details for other apps
+                    showAppDetailModal(appName);
+                }
+            });
+        });
+
+        // Show Download Modal
+        function showDownloadModal(appName) {
+            const app = appData[appName];
+            modalAppTitle.textContent = app.title;
+            modalAppDescription.textContent = app.description;
+            
+            // Clear previous options
+            downloadOptions.innerHTML = '';
+            
+            // Add download options
+            app.options.forEach(option => {
+                const optionElement = document.createElement('div');
+                optionElement.className = 'download-option';
+                optionElement.innerHTML = `
+                    <div class="option-info">
+                        <div class="option-icon ${option.icon}">
+                            <i class="${option.iconClass}"></i>
+                        </div>
+                        <div class="option-details">
+                            <h3>${option.name}</h3>
+                            <p>${option.description}</p>
+                        </div>
+                    </div>
+                    <a href="${option.link}" class="download-btn" target="_blank">Download</a>
+                `;
+                downloadOptions.appendChild(optionElement);
+            });
+            
+            downloadModal.classList.add('active');
+        }
+
+        // Show App Detail Modal
+        function showAppDetailModal(appName) {
+            const app = appData[appName];
+            appDetailTitle.textContent = app.title;
+            appDetailDescription.textContent = app.description;
+            appDetailDownloadLink.href = app.link;
+            
+            // Set app icon
+            appDetailIcon.className = `app-detail-icon ${app.iconColor}`;
+            appDetailIcon.innerHTML = `<i class="${app.iconClass}"></i>`;
+            
+            // Clear previous features
+            appFeaturesList.innerHTML = '';
+            
+            // Add features
+            app.features.forEach(feature => {
+                const featureElement = document.createElement('li');
+                featureElement.textContent = feature;
+                appFeaturesList.appendChild(featureElement);
+            });
+            
+            appDetailModal.classList.add('active');
+        }
+
+        // Close modals with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                welcomeModal.classList.remove('active');
+                downloadModal.classList.remove('active');
                 appDetailModal.classList.remove('active');
             }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add loading animation
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.3s ease';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Social media link handlers
+        document.querySelectorAll('.social-icon, .contact-btn').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const url = link.href;
+                window.open(url, '_blank', 'noopener,noreferrer');
+            });
         });
     </script>
 </body>
