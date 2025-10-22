@@ -264,6 +264,13 @@
             font-size: 16px;
             font-weight: bold;
             flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .option-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .whatsapp-icon { background: linear-gradient(135deg, #25D366, #128C7E); }
@@ -283,15 +290,6 @@
             overflow: hidden;
         }
         .watchapps-icon { background: linear-gradient(135deg, #000000, #FF0000); }
-
-        .iosapps-icon::before {
-            content: "🏠";
-            font-size: 20px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
 
         .option-details h3 {
             font-size: 1.1rem;
@@ -407,6 +405,13 @@
             font-size: 24px;
             font-weight: bold;
             flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .app-detail-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .app-detail-title {
@@ -538,6 +543,13 @@
             font-weight: bold;
             flex-shrink: 0;
             position: relative;
+            overflow: hidden;
+        }
+
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .app-icon.pro-badge::after {
@@ -569,15 +581,6 @@
             background: linear-gradient(135deg, #8B4513, #A0522D);
             position: relative;
             overflow: hidden;
-        }
-
-        .iosapps-icon::before {
-            content: "🏠";
-            font-size: 20px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
         }
 
         .app-details h3 {
@@ -817,10 +820,6 @@
                 font-size: 16px;
             }
 
-            .iosapps-icon::before {
-                font-size: 18px;
-            }
-
             .app-details h3 {
                 font-size: 1rem;
             }
@@ -989,7 +988,7 @@
                 App description goes here.
             </div>
             <div class="app-features">
-                <h3>المميزات الرئيسية</h3>
+                <h3>Main Features</h3>
                 <ul id="appFeaturesList">
                     <!-- Features will be dynamically inserted here -->
                 </ul>
@@ -1040,7 +1039,7 @@
                 <div class="app-item">
                     <div class="app-info">
                         <div class="app-icon whatsapp-icon">
-                            <i class="fab fa-whatsapp"></i>
+                            <img src="https://clipart.info/images/ccovers/1499955335whatsapp-icon-logo-png.png" alt="WhatsApp">
                         </div>
                         <div class="app-details">
                             <h3>WhatsApp</h3>
@@ -1054,7 +1053,7 @@
                 <div class="app-item">
                     <div class="app-info">
                         <div class="app-icon instagram-icon">
-                            <i class="fab fa-instagram"></i>
+                            <img src="https://thvnext.bing.com/th/id/OIP.tcX3B8AAflIboARGnRMnBgHaHa?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Instagram">
                         </div>
                         <div class="app-details">
                             <h3>Instagram</h3>
@@ -1068,7 +1067,7 @@
                 <div class="app-item">
                     <div class="app-info">
                         <div class="app-icon telegram-icon">
-                            <i class="fab fa-telegram"></i>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/2048px-Telegram_logo.svg.png" alt="Telegram">
                         </div>
                         <div class="app-details">
                             <h3>Telegram</h3>
@@ -1082,7 +1081,7 @@
                 <div class="app-item">
                     <div class="app-info">
                         <div class="app-icon tiktok-icon">
-                            <i class="fab fa-tiktok"></i>
+                            <img src="https://thvnext.bing.com/th/id/OIP._PaaQguBm6xX0R6zsFfGxQHaHa?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="TikTok">
                         </div>
                         <div class="app-details">
                             <h3>TikTok</h3>
@@ -1092,14 +1091,14 @@
                     <button class="get-now-btn" data-app="tiktok">Get Now</button>
                 </div>
 
-                <!-- App 5 - CapCut Pro -->
+                <!-- App 5 - CapCut -->
                 <div class="app-item">
                     <div class="app-info">
-                        <div class="app-icon capcut-icon pro-badge">
-                            <i class="fas fa-scissors"></i>
+                        <div class="app-icon capcut-icon">
+                            <img src="https://thvnext.bing.com/th/id/OIP.hGHL79jkVr4vZ5QZFejI9QHaHa?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="CapCut">
                         </div>
                         <div class="app-details">
-                            <h3>CapCut Pro</h3>
+                            <h3>CapCut</h3>
                             <p>Professional video editing with premium features unlocked</p>
                         </div>
                     </div>
@@ -1110,10 +1109,10 @@
                 <div class="app-item">
                     <div class="app-info">
                         <div class="app-icon inshot-icon">
-                            <i class="fas fa-film"></i>
+                            <img src="https://th.bing.com/th/id/R.ecd4c9624cda1329eafc236f84d07f74?rik=oEi7dUiSbfGoWw&pid=ImgRaw&r=0" alt="InShot">
                         </div>
                         <div class="app-details">
-                            <h3>InShot Pro</h3>
+                            <h3>InShot</h3>
                             <p>Professional video editing with no watermark</p>
                         </div>
                     </div>
@@ -1124,10 +1123,10 @@
                 <div class="app-item">
                     <div class="app-info">
                         <div class="app-icon picsart-icon">
-                            <i class="fas fa-paint-brush"></i>
+                            <img src="https://thvnext.bing.com/th/id/OIP.T-SCn3GpqvjImMb-1DxDxwHaHa?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Picsart">
                         </div>
                         <div class="app-details">
-                            <h3>Picsart Pro</h3>
+                            <h3>Picsart</h3>
                             <p>Comprehensive photo editing with all features unlocked</p>
                         </div>
                     </div>
@@ -1138,7 +1137,7 @@
                 <div class="app-item">
                     <div class="app-info">
                         <div class="app-icon youtube-icon">
-                            <i class="fab fa-youtube"></i>
+                            <img src="https://1.bp.blogspot.com/-hY5-pNrOcKw/XeI_00cpCgI/AAAAAAAAF4A/J7jS49V8kNozycy0PgY6wfc7SUU9gulTgCLcBGAsYHQ/s1600/Youtube-Icon-square-2340x2340.png" alt="YouTube">
                         </div>
                         <div class="app-details">
                             <h3>YouTube Premium</h3>
@@ -1152,7 +1151,7 @@
                 <div class="app-item">
                     <div class="app-info">
                         <div class="app-icon spotify-icon">
-                            <i class="fab fa-spotify"></i>
+                            <img src="https://clipartcraft.com/images/spotify-logo-transparent-app.png" alt="Spotify">
                         </div>
                         <div class="app-details">
                             <h3>Spotify Premium</h3>
@@ -1166,8 +1165,8 @@
                 <div class="app-item">
                     <div class="app-info">
                         <div class="app-icon thispc-icon">
-                        <i class="fas fa-laptop"></i>
-                          </div>
+                            <img src="https://thvnext.bing.com/th/id/OIP.1Yn781JF4tspKbsRPAsVRwHaHa?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="This PC">
+                        </div>
                         <div class="app-details">
                             <h3>This PC</h3>
                             <p>Transform your iPhone into a computer experience</p>
@@ -1176,15 +1175,15 @@
                     <button class="get-now-btn" data-app="thispc">Get Now</button>
                 </div>
 
-                <!-- App 11 - Watch Apps -->
+                <!-- App 11 - Cinema Tv Apps -->
                 <div class="app-item">
                     <div class="app-info">
-                        <div class="app-icon watchapps-icon pro-badge">
-                            <i class="fas fa-film"></i>
+                        <div class="app-icon watchapps-icon">
+                            <img src="https://media.istockphoto.com/vectors/cinema-and-movie-design-vector-id670307858?k=20&m=670307858&s=612x612&w=0&h=Jy1L6OuTgllqt66NbtzIx2Q0AW_U8k1u1CrrygQUOps=" alt="Cinema Tv Apps">
                         </div>
                         <div class="app-details">
-                            <h3>Watch Apps</h3>
-                            <p>Applications for Watching Arabic, foreign, Korean and Anime movies and series</p>
+                            <h3>Cinema Tv Apps</h3>
+                            <p>Movie and series streaming apps with premium activated</p>
                         </div>
                     </div>
                     <button class="get-now-btn" data-app="watchapps">Get Now</button>
@@ -1194,7 +1193,7 @@
                 <div class="app-item">
                     <div class="app-info">
                         <div class="app-icon iosapps-icon">
-                            <!-- 🏠 ايموجي في النص -->
+                            <img src="https://thvnext.bing.com/th/id/OIP.Liy9wv46y0WP3_2ZJpTO2AHaHa?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="iOS Apps">
                         </div>
                         <div class="app-details">
                             <h3>iOS Apps</h3>
@@ -1234,14 +1233,14 @@
                         name: "MB WhatsApp",
                         description: "Enhanced messaging with additional features",
                         icon: "whatsapp-icon",
-                        iconClass: "fab fa-whatsapp",
+                        iconImage: "https://clipart.info/images/ccovers/1499955335whatsapp-icon-logo-png.png",
                         link: "https://m7ashr213-cell.github.io/iOS-Store-MB-WhatsApp/"
                     },
                     {
                         name: "iOS WhatsApp",
                         description: "Official WhatsApp with iOS optimizations",
                         icon: "whatsapp-icon",
-                        iconClass: "fab fa-whatsapp",
+                        iconImage: "https://clipart.info/images/ccovers/1499955335whatsapp-icon-logo-png.png",
                         link: "https://m7ashr213-cell.github.io/iOS-Store-WhatsApp/"
                     }
                 ]
@@ -1249,145 +1248,156 @@
             // App Detail Data
             instagram: {
                 title: "Instagram",
-                description: "نسخة محسنة من تطبيق Instagram مع ميزات إضافية غير متوفرة في النسخة العادية",
+                description: "Enhanced version of Instagram with additional features not available in the standard version",
                 features: [
-                    "تحميل الصور والفيديوهات بجودة عالية",
-                    "ميزة التصفح بدون إعلانات مزعجة",
-                    "إمكانية مشاهدة القصص بشكل مجهول",
-                    "واجهة مستخدم محسنة ومخصصة"
+                    "Download photos and videos in high quality",
+                    "Ad-free browsing experience",
+                    "Anonymous story viewing",
+                    "Improved and customized user interface"
                 ],
                 iconClass: "fab fa-instagram",
                 iconColor: "instagram-icon",
+                iconImage: "https://thvnext.bing.com/th/id/OIP.tcX3B8AAflIboARGnRMnBgHaHa?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
                 link: "https://m7ashr213-cell.github.io/iOS-Store-iOS-Instagram-Web/"
             },
             telegram: {
                 title: "Telegram",
-                description: "تطبيق مراسلة فوري سريع وآمن مع ميزات متقدمة",
+                description: "Fast and secure instant messaging app with advanced features",
                 features: [
-                    "رسائل سرية ذاتية التدمير",
-                    "مكالمات صوتية وفيديو عالية الجودة",
-                    "دعم للمجموعات الكبيرة حتى 200,000 عضو",
-                    "مزامنة فورية عبر جميع الأجهزة"
+                    "Self-destructing secret messages",
+                    "High-quality voice and video calls",
+                    "Support for large groups up to 200,000 members",
+                    "Instant synchronization across all devices"
                 ],
                 iconClass: "fab fa-telegram",
                 iconColor: "telegram-icon",
+                iconImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/2048px-Telegram_logo.svg.png",
                 link: "https://m7ashr213-cell.github.io/iOS-Store-iOS-Telegram-/"
             },
             tiktok: {
                 title: "TikTok",
-                description: "منصة الفيديوهات القصيرة الرائدة مع تحسينات حصرية",
+                description: "Leading short video platform with exclusive enhancements",
                 features: [
-                    "تحميل الفيديوهات بدون علامة مائية",
-                    "مشاهدة فيديوهات بدون إعلانات متقطعة",
-                    "إمكانية استخدام جميع المؤثرات مجاناً",
-                    "واجهة مستخدم محسنة وسريعة"
+                    "Download videos without watermark",
+                    "Watch videos without interruptions",
+                    "Access to all effects for free",
+                    "Improved and fast user interface"
                 ],
                 iconClass: "fab fa-tiktok",
                 iconColor: "tiktok-icon",
+                iconImage: "https://thvnext.bing.com/th/id/OIP._PaaQguBm6xX0R6zsFfGxQHaHa?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
                 link: "https://m7ashr213-cell.github.io/iOS-Store-iOS-TikTok-Web/"
             },
             capcut: {
-                title: "CapCut Pro",
-                description: "تطبيق تحرير الفيديوهات الاحترافي مع جميع الميزات المميزة مفعلة",
+                title: "CapCut",
+                description: "Professional video editing app with all premium features unlocked",
                 features: [
-                    "جميع المؤثرات والفلترات متاحة مجاناً",
-                    "إزالة العلامة المائية بشكل تلقائي",
-                    "دعم تصدير الفيديوهات بدقة 4K",
-                    "مكتبة موسيقى خلفية شاملة بدون قيود"
+                    "All effects and filters available for free",
+                    "Automatic watermark removal",
+                    "Support for 4K video export",
+                    "Comprehensive background music library without restrictions"
                 ],
                 iconClass: "fas fa-scissors",
                 iconColor: "capcut-icon",
+                iconImage: "https://thvnext.bing.com/th/id/OIP.hGHL79jkVr4vZ5QZFejI9QHaHa?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
                 link: "https://m7ashr213-cell.github.io/ios-store-develope-site/"
             },
             inshot: {
-                title: "InShot Pro",
-                description: "تطبيق تحرير فيديو متقدم مع إزالة العلامة المائية",
+                title: "InShot",
+                description: "Advanced video editing app with watermark removal",
                 features: [
-                    "تحرير فيديو بدون علامة مائية",
-                    "جميع الملصقات والمرشحات متاحة",
-                    "إضافة موسيقى ومؤثرات صوتية متقدمة",
-                    "تصدير بدقة عالية وسرعة معالجة فائقة"
+                    "Video editing without watermark",
+                    "All stickers and filters available",
+                    "Add music and advanced sound effects",
+                    "High resolution export with fast processing"
                 ],
                 iconClass: "fas fa-film",
                 iconColor: "inshot-icon",
+                iconImage: "https://th.bing.com/th/id/R.ecd4c9624cda1329eafc236f84d07f74?rik=oEi7dUiSbfGoWw&pid=ImgRaw&r=0",
                 link: "https://m7ashr213-cell.github.io/iOS-Store-InShot-Pro/"
             },
             picsart: {
-                title: "Picsart Pro",
-                description: "تطبيق تحرير الصور الشامل مع جميع الميزات المميزة مفعلة",
+                title: "Picsart",
+                description: "Comprehensive photo editing app with all premium features unlocked",
                 features: [
-                    "جميع أدوات التحرير والفلترات متاحة",
-                    "مكتبة ملصقات ورسومات غير محدودة",
-                    "إزالة الخلفية والخلفيات الذكية",
-                    "تصدير الصور بدقة عالية بدون علامة مائية"
+                    "All editing tools and filters available",
+                    "Unlimited stickers and graphics library",
+                    "Background removal and smart backgrounds",
+                    "High resolution export without watermark"
                 ],
                 iconClass: "fas fa-paint-brush",
                 iconColor: "picsart-icon",
+                iconImage: "https://thvnext.bing.com/th/id/OIP.T-SCn3GpqvjImMb-1DxDxwHaHa?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
                 link: "https://m7ashr213-cell.github.io/iOS-Store-Picsart-Pro/"
             },
             youtube: {
                 title: "YouTube Premium",
-                description: "استمتع بتجربة يوتيوب بدون إعلانات مع ميزات إضافية",
+                description: "Enjoy YouTube without ads with additional features",
                 features: [
-                    "مشاهدة فيديوهات بدون إعلانات متقطعة",
-                    "تشغيل الفيديوهات في الخلفية",
-                    "تحميل الفيديوهات لمشاهدتها بدون إنترنت",
-                    "دعم جودة الفيديو حتى 4K"
+                    "Watch videos without ad interruptions",
+                    "Background video playback",
+                    "Download videos for offline viewing",
+                    "Support for video quality up to 4K"
                 ],
                 iconClass: "fab fa-youtube",
                 iconColor: "youtube-icon",
+                iconImage: "https://1.bp.blogspot.com/-hY5-pNrOcKw/XeI_00cpCgI/AAAAAAAAF4A/J7jS49V8kNozycy0PgY6wfc7SUU9gulTgCLcBGAsYHQ/s1600/Youtube-Icon-square-2340x2340.png",
                 link: "https://m7ashr213-cell.github.io/iOS-Store-YouTube-Premioum/"
             },
             spotify: {
                 title: "Spotify Premium",
-                description: "استمع إلى الموسيقى بدون إعلانات مع ميزات متقدمة",
+                description: "Listen to music without ads with advanced features",
                 features: [
-                    "استماع إلى الموسيقى بدون إعلانات",
-                    "إمكانية تخطي الأغاني بدون حدود",
-                    "تحميل الأغاني للاستماع بدون إنترنت",
-                    "جودة صوت عالية ومميزات تحكم متقدمة"
+                    "Listen to music without ads",
+                    "Unlimited song skipping",
+                    "Download songs for offline listening",
+                    "High sound quality and advanced control features"
                 ],
                 iconClass: "fab fa-spotify",
                 iconColor: "spotify-icon",
+                iconImage: "https://clipartcraft.com/images/spotify-logo-transparent-app.png",
                 link: "https://m7ashr213-cell.github.io/iOS-Store-Spotify/"
             },
             thispc: {
                 title: "This PC",
-                description: "حول هاتفك إلى كمبيوتر شخصي مع واجهة مشابهة لنظام Windows",
+                description: "Transform your phone into a computer experience with Windows-like interface",
                 features: [
-                    "واجهة مستخدم مشابهة لنظام Windows",
-                    "إدارة الملفات والمجلدات بسهولة",
-                    "تشغيل التطبيقات بنظام الكمبيوتر",
-                    "تجربة مستخدم احترافية ومتطورة"
+                    "Windows-like user interface",
+                    "Easy file and folder management",
+                    "Run applications in computer mode",
+                    "Professional and advanced user experience"
                 ],
                 iconClass: "fas fa-laptop",
                 iconColor: "thispc-icon",
+                iconImage: "https://thvnext.bing.com/th/id/OIP.1Yn781JF4tspKbsRPAsVRwHaHa?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
                 link: "https://m7ashr213-cell.github.io/iOS-Store-This-PC/"
             },
             watchapps: {
-                title: "Watch Apps",
-                description: "تطبيقات مشاهدة أفلام ومسلسلات وأنمي مفعلة بالبريميوم",
+                title: "Cinema Tv Apps",
+                description: "Movie and series streaming apps with premium activated",
                 features: [
-                    "مشاهدة الأفلام والمسلسلات بدون إعلانات",
-                    "دعم لمحتوى الأنمي بجودة عالية",
-                    "جميع الميزات المميزة مفعلة مجاناً",
-                    "واجهة مستخدم محسنة وسهلة الاستخدام"
+                    "Watch movies and series without ads",
+                    "Support for anime content in high quality",
+                    "All premium features activated for free",
+                    "Improved and easy-to-use user interface"
                 ],
-                iconClass: "🎬",
+                iconClass: "fas fa-film",
                 iconColor: "watchapps-icon",
+                iconImage: "https://media.istockphoto.com/vectors/cinema-and-movie-design-vector-id670307858?k=20&m=670307858&s=612x612&w=0&h=Jy1L6OuTgllqt66NbtzIx2Q0AW_U8k1u1CrrygQUOps=",
                 link: "https://m7ashr213-cell.github.io/Watch-Apps/"
             },
             iosapps: {
                 title: "iOS Apps",
-                description: "مجموعة شاملة من تطبيقات iOS والأدوات المساعدة",
+                description: "Comprehensive collection of iOS applications and utilities",
                 features: [
-                    "مجموعة متنوعة من التطبيقات المميزة",
-                    "تحديثات مستمرة للتطبيقات",
-                    "واجهة مستخدم بسيطة وسهلة الاستخدام",
-                    "دعم كامل لأحدث إصدارات iOS"
+                    "Variety of premium applications",
+                    "Continuous app updates",
+                    "Simple and easy-to-use interface",
+                    "Full support for the latest iOS versions"
                 ],
                 iconClass: "fas fa-mobile-alt",
                 iconColor: "iosapps-icon",
+                iconImage: "https://thvnext.bing.com/th/id/OIP.Liy9wv46y0WP3_2ZJpTO2AHaHa?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
                 link: "https://m7ashr213-cell.github.io/iOS-Store-iOS-Apps/"
             }
         };
@@ -1454,7 +1464,7 @@
                         optionElement.innerHTML = `
                             <div class="option-info">
                                 <div class="option-icon ${option.icon}">
-                                    <i class="${option.iconClass}"></i>
+                                    <img src="${option.iconImage}" alt="${option.name}">
                                 </div>
                                 <div class="option-details">
                                     <h3>${option.name}</h3>
@@ -1505,7 +1515,7 @@
                     appDetailTitle.textContent = app.title;
                     appDetailDescription.textContent = app.description;
                     appDetailIcon.className = `app-detail-icon ${app.iconColor}`;
-                    appDetailIcon.innerHTML = `<i class="${app.iconClass}"></i>`;
+                    appDetailIcon.innerHTML = `<img src="${app.iconImage}" alt="${app.title}">`;
                     appDetailDownloadLink.href = app.link;
                     
                     // Clear previous features
@@ -1537,4 +1547,3 @@
     </script>
 </body>
 </html>
-
