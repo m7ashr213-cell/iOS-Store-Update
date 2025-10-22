@@ -765,6 +765,35 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
         }
 
+        /* Audio Control */
+        .audio-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 999;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+        }
+
+        .audio-control:hover {
+            transform: scale(1.1);
+            background: var(--secondary-color);
+        }
+
+        .audio-control.muted {
+            background: #ff4757;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             body {
@@ -881,6 +910,13 @@
                 height: 50px;
                 font-size: 20px;
             }
+
+            .audio-control {
+                bottom: 15px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -961,6 +997,11 @@
             </div>
         </div>
     </div>
+
+    <!-- Audio Control Button -->
+    <button class="audio-control" id="audioControl">
+        <i class="fas fa-volume-up"></i>
+    </button>
 
     <!-- Download Modal -->
     <div class="download-modal" id="downloadModal">
@@ -1402,6 +1443,59 @@
             }
         };
 
+        // Audio Control
+        const audioControl = document.getElementById('audioControl');
+        let isAudioEnabled = true;
+
+        // Text to Speech Function
+        function playWelcomeMessage() {
+            if (!isAudioEnabled) return;
+            
+            if ('speechSynthesis' in window) {
+                // Stop any previous message
+                window.speechSynthesis.cancel();
+                
+                const message = new SpeechSynthesisUtterance();
+                message.text = "Welcome to the iOS applications store. Here you will find the best modified applications ever. To contact the developer for more details, click on the WhatsApp icon. Goodbye and stay safe.";
+                message.lang = 'en-US';
+                message.rate = 0.9; // Speech speed
+                message.pitch = 1; // Voice pitch
+                message.volume = 1; // Volume level
+                
+                // Try to use a female voice if available
+                const voices = speechSynthesis.getVoices();
+                const femaleVoice = voices.find(voice => 
+                    voice.name.includes('Female') || 
+                    voice.name.includes('Samantha') ||
+                    voice.name.includes('Karen') ||
+                    voice.name.includes('Victoria')
+                );
+                
+                if (femaleVoice) {
+                    message.voice = femaleVoice;
+                }
+                
+                window.speechSynthesis.speak(message);
+            }
+        }
+
+        // Audio Control Toggle
+        audioControl.addEventListener('click', function() {
+            isAudioEnabled = !isAudioEnabled;
+            
+            if (isAudioEnabled) {
+                audioControl.innerHTML = '<i class="fas fa-volume-up"></i>';
+                audioControl.classList.remove('muted');
+                // Stop any current speech
+                window.speechSynthesis.cancel();
+            } else {
+                audioControl.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                audioControl.classList.add('muted');
+                // Stop any current speech
+                window.speechSynthesis.cancel();
+            }
+        });
+
         // Theme Toggle
         const themeToggle = document.getElementById('themeToggle');
         const body = document.body;
@@ -1423,19 +1517,18 @@
         // Close modal when X is clicked
         closeWelcomeModal.addEventListener('click', () => {
             welcomeModal.classList.remove('active');
+            // Play audio message after closing the modal
+            setTimeout(playWelcomeMessage, 500);
         });
         
         // Close modal when clicking outside content
         welcomeModal.addEventListener('click', (e) => {
             if (e.target === welcomeModal) {
                 welcomeModal.classList.remove('active');
+                // Play audio message after closing the modal
+                setTimeout(playWelcomeMessage, 500);
             }
         });
-
-        // Auto close modal after 5 seconds
-        setTimeout(() => {
-            welcomeModal.classList.remove('active');
-        }, 5000);
 
         // Download Modal (for WhatsApp only)
         const downloadModal = document.getElementById('downloadModal');
@@ -1543,6 +1636,14 @@
             if (e.target === appDetailModal) {
                 appDetailModal.classList.remove('active');
             }
+        });
+
+        // Initialize voices when page loads
+        window.addEventListener('load', function() {
+            // Wait for voices to load
+            setTimeout(() => {
+                speechSynthesis.getVoices();
+            }, 100);
         });
     </script>
 </body>
