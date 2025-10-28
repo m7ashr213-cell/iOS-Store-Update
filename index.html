@@ -373,13 +373,12 @@
             background-color: var(--card-color);
             border-radius: 20px;
             padding: 25px;
-            max-width: 400px;
+            max-width: 500px;
             width: 100%;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             transform: translateY(20px);
             transition: transform 0.3s ease;
             position: relative;
-            text-align: center;
         }
 
         .app-detail-modal.active .app-detail-content {
@@ -387,19 +386,26 @@
         }
 
         .app-detail-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
             margin-bottom: 20px;
+            justify-content: center;
+            text-align: center;
         }
 
         .app-detail-icon {
-            width: 100px;
-            height: 100px;
-            border-radius: 20px;
-            margin: 0 auto 15px;
-            overflow: hidden;
+            width: 60px;
+            height: 60px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            flex-shrink: 0;
+            overflow: hidden;
         }
 
         .app-detail-icon img {
@@ -411,64 +417,72 @@
         .app-detail-title {
             font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 10px;
         }
 
         .app-detail-description {
-            opacity: 0.8;
-            margin-bottom: 25px;
-            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            text-align: center;
         }
 
-        .app-detail-actions {
+        .app-features {
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .app-features h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .app-features ul {
+            list-style-type: none;
+            padding-left: 0;
             display: flex;
             flex-direction: column;
-            gap: 15px;
-        }
-
-        .features-btn {
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 14px 20px;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
             align-items: center;
+        }
+
+        .app-features li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            text-align: center;
+        }
+
+        .app-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .app-detail-footer {
+            display: flex;
             justify-content: center;
-            gap: 10px;
         }
 
-        .features-btn:hover {
-            background-color: #25a244;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .app-detail-download {
+        .app-detail-btn {
             background-color: var(--primary-color);
             color: white;
             border: none;
-            padding: 14px 20px;
-            border-radius: 12px;
-            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 10px;
             font-size: 1rem;
+            font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+            display: inline-block;
+            text-align: center;
         }
 
-        .app-detail-download:hover {
+        .app-detail-btn:hover {
             background-color: var(--secondary-color);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
         }
 
         /* Apps Section */
@@ -593,7 +607,6 @@
             border: none;
             cursor: pointer;
             flex-shrink: 0;
-            border: 1px solid var(--primary-color);
         }
 
         .get-now-btn:hover {
@@ -886,9 +899,16 @@
                 min-width: 100px;
             }
 
+            .app-detail-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
             .app-detail-icon {
-                width: 80px;
-                height: 80px;
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
             }
 
             .audio-control {
@@ -983,12 +1003,12 @@
         <i class="fas fa-volume-up"></i>
     </button>
 
-    <!-- Download Modal (for WhatsApp only) -->
+    <!-- Download Modal -->
     <div class="download-modal" id="downloadModal">
         <div class="modal-content">
             <button class="close-modal" id="closeDownloadModal">&times;</button>
             <div class="modal-header">
-                <h2 id="modalAppTitle">Download WhatsApp</h2>
+                <h2 id="modalAppTitle">Download App</h2>
                 <p id="modalAppDescription">Choose your preferred version</p>
             </div>
             <div class="download-options" id="downloadOptions">
@@ -1002,19 +1022,20 @@
         <div class="app-detail-content">
             <button class="close-modal" id="closeAppDetailModal">&times;</button>
             <div class="app-detail-header">
-                <div class="app-detail-icon" id="appDetailIcon">
-                    <!-- App icon will be inserted here -->
-                </div>
+                <div class="app-detail-icon" id="appDetailIcon"></div>
                 <h2 class="app-detail-title" id="appDetailTitle">App Name</h2>
-                <p class="app-detail-description" id="appDetailDescription">App description goes here</p>
             </div>
-            <div class="app-detail-actions">
-                <button class="features-btn" id="appFeaturesBtn">
-                    <i class="fas fa-volume-up"></i> مميزات التطبيق
-                </button>
-                <a href="#" class="app-detail-download" id="appDetailDownloadLink" target="_blank">
-                    <i class="fas fa-download"></i> Get Now
-                </a>
+            <div class="app-detail-description" id="appDetailDescription">
+                App description goes here.
+            </div>
+            <div class="app-features">
+                <h3>Main Features</h3>
+                <ul id="appFeaturesList">
+                    <!-- Features will be dynamically inserted here -->
+                </ul>
+            </div>
+            <div class="app-detail-footer">
+                <a href="#" class="app-detail-btn" id="appDetailDownloadLink" target="_blank">Get Now</a>
             </div>
         </div>
     </div>
@@ -1243,7 +1264,7 @@
     </div>
 
     <script>
-        // App download data for WhatsApp only
+        // App download data
         const appData = {
             whatsapp: {
                 title: "Download WhatsApp",
@@ -1264,86 +1285,160 @@
                         link: "https://m7ashr213-cell.github.io/iOS-Store-WhatsApp/"
                     }
                 ]
-            }
-        };
-
-        // App details data
-        const appDetails = {
+            },
+            // App Detail Data
             instagram: {
                 title: "Instagram",
-                description: "Enhanced version of Instagram with additional features",
+                description: "Enhanced version of Instagram with additional features not available in the standard version",
+                features: [
+                    "Download photos and videos in high quality",
+                    "Ad-free browsing experience",
+                    "Anonymous story viewing",
+                    "Improved and customized user interface"
+                ],
+                iconClass: "fab fa-instagram",
+                iconColor: "instagram-icon",
                 iconImage: "https://thvnext.bing.com/th/id/OIP.tcX3B8AAflIboARGnRMnBgHaHa?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
-                features: "مميزات Instagram الأيفون: تحميل الصور والفيديوهات بجودة عالية، تصفح بدون إعلانات، مشاهدة القصص بشكل مجهول، واجهة مستخدم محسنة ومخصصة، إمكانية نسخ النصوص بسهولة، تحميل القصص بجودة عالية، إزالة الحظر عن الميزات المتقدمة",
                 link: "https://m7ashr213-cell.github.io/iOS-Store-iOS-Instagram-Web/"
             },
             telegram: {
                 title: "Telegram",
-                description: "Fast and secure messaging with advanced features",
+                description: "Fast and secure instant messaging app with advanced features",
+                features: [
+                    "Self-destructing secret messages",
+                    "High-quality voice and video calls",
+                    "Support for large groups up to 200,000 members",
+                    "Instant synchronization across all devices"
+                ],
+                iconClass: "fab fa-telegram",
+                iconColor: "telegram-icon",
                 iconImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/2048px-Telegram_logo.svg.png",
-                features: "مميزات تيليجرام الأيفون: رسائل سرية ذاتية التدمير، مكالمات صوتية وفيديو بجودة عالية، دعم مجموعات كبيرة حتى 200 ألف عضو، مزامنة فورية عبر جميع الأجهزة، تحميل الملفات بسرعات عالية، واجهة مستخدم محسنة، إمكانيات تخصيص متقدمة",
                 link: "https://m7ashr213-cell.github.io/iOS-Store-iOS-Telegram-/"
             },
             tiktok: {
                 title: "TikTok",
-                description: "Create and discover short videos with enhanced editing",
+                description: "Leading short video platform with exclusive enhancements",
+                features: [
+                    "Download videos without watermark",
+                    "Watch videos without interruptions",
+                    "Access to all effects for free",
+                    "Improved and fast user interface"
+                ],
+                iconClass: "fab fa-tiktok",
+                iconColor: "tiktok-icon",
                 iconImage: "https://thvnext.bing.com/th/id/OIP._PaaQguBm6xX0R6zsFfGxQHaHa?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
-                features: "مميزات تيك توك الأيفون: تحميل الفيديوهات بدون علامة مائية، مشاهدة الفيديوهات بدون مقاطعات، تغيير الأيموجي الي ايموجي اجهزة الأيفون ؛ الوصول لجميع المؤثرات مجاناً، واجهة مستخدم محسنة وسريعة، إزالة القيود عن التحميل، إمكانية تحميل الفيديوهات بجودة عالية",
                 link: "https://m7ashr213-cell.github.io/iOS-Store-iOS-TikTok-Web/"
             },
             capcut: {
                 title: "CapCut",
-                description: "Professional video editing with premium features unlocked",
+                description: "Professional video editing app with all premium features unlocked",
+                features: [
+                    "All effects and filters available for free",
+                    "Automatic watermark removal",
+                    "Support for 4K video export",
+                    "Comprehensive background music library without restrictions"
+                ],
+                iconClass: "fas fa-scissors",
+                iconColor: "capcut-icon",
                 iconImage: "https://thvnext.bing.com/th/id/OIP.hGHL79jkVr4vZ5QZFejI9QHaHa?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
-                features: "مميزات كاب كت المعدل: جميع المؤثرات والمرشحات متاحة مجاناً، إزالة العلامة المائية تلقائياً، دعم تصدير الفيديو بدقة 4K، مكتبة موسيقى خلفية شاملة بدون قيود، أدوات تحرير متقدمة، إطارات ومؤثرات حصرية",
                 link: "https://m7ashr213-cell.github.io/ios-store-develope-site/"
             },
             inshot: {
                 title: "InShot",
-                description: "Professional video editing with no watermark",
+                description: "Advanced video editing app with watermark removal",
+                features: [
+                    "Video editing without watermark",
+                    "All stickers and filters available",
+                    "Add music and advanced sound effects",
+                    "High resolution export with fast processing"
+                ],
+                iconClass: "fas fa-film",
+                iconColor: "inshot-icon",
                 iconImage: "https://th.bing.com/th/id/R.ecd4c9624cda1329eafc236f84d07f74?rik=oEi7dUiSbfGoWw&pid=ImgRaw&r=0",
-                features: "مميزات تطبيق InShot: تحرير الفيديو بدون علامة مائية، جميع الملصقات والمرشحات متاحة، إضافة الموسيقى ومؤثرات صوتية متقدمة، تصدير بدقة عالية مع معالجة سريعة، أدوات قص ودمج متقدمة، تأثيرات انتقالية حصرية",
                 link: "https://m7ashr213-cell.github.io/iOS-Store-InShot-Pro/"
             },
             picsart: {
                 title: "Picsart",
-                description: "Comprehensive photo editing with all features unlocked",
+                description: "Comprehensive photo editing app with all premium features unlocked",
+                features: [
+                    "All editing tools and filters available",
+                    "Unlimited stickers and graphics library",
+                    "Background removal and smart backgrounds",
+                    "High resolution export without watermark"
+                ],
+                iconClass: "fas fa-paint-brush",
+                iconColor: "picsart-icon",
                 iconImage: "https://thvnext.bing.com/th/id/OIP.T-SCn3GpqvjImMb-1DxDxwHaHa?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
-                features: "مميزات تطبيق Picsart: جميع أدوات التحرير والمرشحات متاحة، مكتبة ملصقات ورسومات غير محدودة، إزالة الخلفية وخلفيات ذكية، تصدير بدقة عالية بدون علامة مائية، أدوات الرسم المتقدمة، تأثيرات فنية احترافية",
                 link: "https://m7ashr213-cell.github.io/iOS-Store-Picsart-Pro/"
             },
             youtube: {
                 title: "YouTube Premium",
-                description: "Ad-free videos, background play, and downloads",
+                description: "Enjoy YouTube without ads with additional features",
+                features: [
+                    "Watch videos without ad interruptions",
+                    "Background video playback",
+                    "Download videos for offline viewing",
+                    "Support for video quality up to 4K"
+                ],
+                iconClass: "fab fa-youtube",
+                iconColor: "youtube-icon",
                 iconImage: "https://1.bp.blogspot.com/-hY5-pNrOcKw/XeI_00cpCgI/AAAAAAAAF4A/J7jS49V8kNozycy0PgY6wfc7SUU9gulTgCLcBGAsYHQ/s1600/Youtube-Icon-square-2340x2340.png",
-                features: "مميزات يوتيوب بريميوم: مشاهدة مقاطع الفيديو بدون مقاطعات إعلانية، تشغيل الفيديو في الخلفية، تنزيل مقاطع الفيديو للمشاهدة بدون اتصال، دعم جودة الفيديو حتى 4كيه، تجربة مستخدم محسنة، إزالة القيود عن المحتوى",
                 link: "https://m7ashr213-cell.github.io/iOS-Store-YouTube-Premioum/"
             },
             spotify: {
                 title: "Spotify Premium",
-                description: "Ad-free music, unlimited skips, and offline downloads",
+                description: "Listen to music without ads with advanced features",
+                features: [
+                    "Listen to music without ads",
+                    "Unlimited song skipping",
+                    "Download songs for offline listening",
+                    "High sound quality and advanced control features"
+                ],
+                iconClass: "fab fa-spotify",
+                iconColor: "spotify-icon",
                 iconImage: "https://clipartcraft.com/images/spotify-logo-transparent-app.png",
-                features: "مميزات التطببيق : استمع إلى الموسيقى بدون إعلانات، تخطي الأغاني غير محدود، تنزيل الأغاني للاستماع بدون اتصال، جودة صوت عالية وميزات تحكم متقدمة، واجهة مستخدم محسنة، قوائم تشغيل حصرية",
                 link: "https://m7ashr213-cell.github.io/iOS-Store-Spotify/"
             },
             thispc: {
                 title: "This PC",
-                description: "Transform your iPhone into a computer experience",
+                description: "Transform your phone into a computer experience with Windows-like interface",
+                features: [
+                    "Windows-like user interface",
+                    "Easy file and folder management",
+                    "Run applications in computer mode",
+                    "Professional and advanced user experience"
+                ],
+                iconClass: "fas fa-laptop",
+                iconColor: "thispc-icon",
                 iconImage: "https://thvnext.bing.com/th/id/OIP.1Yn781JF4tspKbsRPAsVRwHaHa?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
-                features: "مميزات تطبيق تحويل الهاتف الي كمبيوتر: واجهة مستخدم تشبه ويندوز، إدارة سهلة للملفات والمجلدات، تشغيل التطبيقات في وضع الكمبيوتر، تجربة مستخدم احترافية ومتقدمة، أدوات نظام متكاملة، إمكانيات تخصيص متقدمة",
                 link: "https://m7ashr213-cell.github.io/iOS-Store-This-PC/"
             },
             watchapps: {
                 title: "Cinema Tv Apps",
                 description: "Movie and series streaming apps with premium activated",
+                features: [
+                    "Watch movies and series without ads",
+                    "Support for anime content in high quality",
+                    "All premium features activated for free",
+                    "Improved and easy-to-use user interface"
+                ],
+                iconClass: "fas fa-film",
+                iconColor: "watchapps-icon",
                 iconImage: "https://media.istockphoto.com/vectors/cinema-and-movie-design-vector-id670307858?k=20&m=670307858&s=612x612&w=0&h=Jy1L6OuTgllqt66NbtzIx2Q0AW_U8k1u1CrrygQUOps=",
-                features: "مميزات تطبيقات السينما والتلفزيون: مشاهدة الأفلام والمسلسلات بدون إعلانات، دعم محتوى الأنمي بجودة عالية، جميع الميزات المميزة مفعلة مجاناً، واجهة مستخدم محسنة وسهلة الاستخدام، تحديثات مستمرة للمحتوى، دعم العديد من الخوادم",
                 link: "https://m7ashr213-cell.github.io/Watch-Apps/"
             },
             iosapps: {
                 title: "iOS Apps",
-                description: "Collection of iOS applications and utilities",
+                description: "Comprehensive collection of iOS applications and utilities",
+                features: [
+                    "Variety of premium applications",
+                    "Continuous app updates",
+                    "Simple and easy-to-use interface",
+                    "Full support for the latest iOS versions"
+                ],
+                iconClass: "fas fa-mobile-alt",
+                iconColor: "iosapps-icon",
                 iconImage: "https://thvnext.bing.com/th/id/OIP.Liy9wv46y0WP3_2ZJpTO2AHaHa?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
-                features: "مميزات تطبيقات IOS : مجموعة متنوعة من التطبيقات المميزة، تحديثات مستمرة للتطبيقات، واجهة بسيطة وسهلة الاستخدام، دعم كامل لأحدث إصدار لكل تطبيق، تثبيت سهل وسريع، دعم فني متكامل",
                 link: "https://m7ashr213-cell.github.io/iOS-Store-iOS-Apps/"
             }
         };
@@ -1352,7 +1447,7 @@
         const audioControl = document.getElementById('audioControl');
         let isAudioEnabled = true;
 
-        // Text to Speech Function - ARABIC WELCOME MESSAGE
+        // Text to Speech Function
         function playWelcomeMessage() {
             if (!isAudioEnabled) return;
             
@@ -1361,53 +1456,23 @@
                 window.speechSynthesis.cancel();
                 
                 const message = new SpeechSynthesisUtterance();
-                message.text = "مرحباً بكم في متجر تطبيقاتنا . هنا ستجدون أفضل التطبيقات المعدلة على الإطلاق. للتواصل مع المطور لمزيد من التفاصيل، انقر على أيقونة واتساب. مع السلامة وحافظوا على سلامتكم لكم منا اطيب التحيات.";
-                message.lang = 'ar-SA'; // Arabic language
+                message.text = "Welcome to the iOS applications store. Here you will find the best modified applications ever. To contact the developer for more details, click on the WhatsApp icon. Goodbye and stay safe.";
+                message.lang = 'en-US';
                 message.rate = 0.9; // Speech speed
                 message.pitch = 1; // Voice pitch
                 message.volume = 1; // Volume level
                 
-                // Try to use an Arabic voice if available
+                // Try to use a female voice if available
                 const voices = speechSynthesis.getVoices();
-                const arabicVoice = voices.find(voice => 
-                    voice.lang.includes('ar') || 
-                    voice.lang.includes('arabic') ||
-                    voice.name.includes('Arabic')
+                const femaleVoice = voices.find(voice => 
+                    voice.name.includes('Female') || 
+                    voice.name.includes('Samantha') ||
+                    voice.name.includes('Karen') ||
+                    voice.name.includes('Victoria')
                 );
                 
-                if (arabicVoice) {
-                    message.voice = arabicVoice;
-                }
-                
-                window.speechSynthesis.speak(message);
-            }
-        }
-
-        // Function to speak app features in Arabic
-        function speakAppFeatures(features) {
-            if (!isAudioEnabled) return;
-            
-            if ('speechSynthesis' in window) {
-                // Stop any previous message
-                window.speechSynthesis.cancel();
-                
-                const message = new SpeechSynthesisUtterance();
-                message.text = features;
-                message.lang = 'ar-SA'; // Arabic language
-                message.rate = 0.9; // Speech speed
-                message.pitch = 1; // Voice pitch
-                message.volume = 1; // Volume level
-                
-                // Try to use an Arabic voice if available
-                const voices = speechSynthesis.getVoices();
-                const arabicVoice = voices.find(voice => 
-                    voice.lang.includes('ar') || 
-                    voice.lang.includes('arabic') ||
-                    voice.name.includes('Arabic')
-                );
-                
-                if (arabicVoice) {
-                    message.voice = arabicVoice;
+                if (femaleVoice) {
+                    message.voice = femaleVoice;
                 }
                 
                 window.speechSynthesis.speak(message);
@@ -1452,7 +1517,7 @@
         // Close modal when X is clicked
         closeWelcomeModal.addEventListener('click', () => {
             welcomeModal.classList.remove('active');
-            // Play Arabic audio message after closing the modal
+            // Play audio message after closing the modal
             setTimeout(playWelcomeMessage, 500);
         });
         
@@ -1460,7 +1525,7 @@
         welcomeModal.addEventListener('click', (e) => {
             if (e.target === welcomeModal) {
                 welcomeModal.classList.remove('active');
-                // Play Arabic audio message after closing the modal
+                // Play audio message after closing the modal
                 setTimeout(playWelcomeMessage, 500);
             }
         });
@@ -1527,7 +1592,7 @@
         const appDetailTitle = document.getElementById('appDetailTitle');
         const appDetailDescription = document.getElementById('appDetailDescription');
         const appDetailIcon = document.getElementById('appDetailIcon');
-        const appFeaturesBtn = document.getElementById('appFeaturesBtn');
+        const appFeaturesList = document.getElementById('appFeaturesList');
         const appDetailDownloadLink = document.getElementById('appDetailDownloadLink');
         
         // Get all app buttons except WhatsApp
@@ -1537,18 +1602,24 @@
         appButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const appId = button.getAttribute('data-app');
-                const app = appDetails[appId];
+                const app = appData[appId];
                 
                 if (app) {
                     appDetailTitle.textContent = app.title;
                     appDetailDescription.textContent = app.description;
+                    appDetailIcon.className = `app-detail-icon ${app.iconColor}`;
                     appDetailIcon.innerHTML = `<img src="${app.iconImage}" alt="${app.title}">`;
                     appDetailDownloadLink.href = app.link;
                     
-                    // Set up features button
-                    appFeaturesBtn.onclick = () => {
-                        speakAppFeatures(app.features);
-                    };
+                    // Clear previous features
+                    appFeaturesList.innerHTML = '';
+                    
+                    // Add new features
+                    app.features.forEach(feature => {
+                        const featureElement = document.createElement('li');
+                        featureElement.textContent = feature;
+                        appFeaturesList.appendChild(featureElement);
+                    });
                     
                     appDetailModal.classList.add('active');
                 }
