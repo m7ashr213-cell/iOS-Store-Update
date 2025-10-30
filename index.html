@@ -794,6 +794,39 @@
             background: #ff4757;
         }
 
+        /* AI Assistant Control */
+        .ai-control {
+            position: fixed;
+            bottom: 85px;
+            right: 20px;
+            background: white;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 999;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+            overflow: hidden;
+        }
+
+        .ai-control img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .ai-control:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             body {
@@ -911,11 +944,15 @@
                 font-size: 20px;
             }
 
-            .audio-control {
+            .audio-control, .ai-control {
                 bottom: 15px;
                 right: 15px;
                 width: 45px;
                 height: 45px;
+            }
+
+            .ai-control {
+                bottom: 75px;
             }
         }
 
@@ -997,6 +1034,11 @@
             </div>
         </div>
     </div>
+
+    <!-- AI Assistant Control Button -->
+    <a href="https://m7ashr213-cell.github.io/Ai-iOS-STORE/" class="ai-control" id="aiControl" target="_blank">
+        <img src="https://tse3.mm.bing.net/th/id/OIP.1TXUHdZSxaRpZBE7X85zBAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="AI Assistant">
+    </a>
 
     <!-- Audio Control Button -->
     <button class="audio-control" id="audioControl">
