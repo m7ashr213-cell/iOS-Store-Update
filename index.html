@@ -148,9 +148,6 @@
             padding: 25px 0;
             text-align: center;
             margin-bottom: 25px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s ease forwards;
         }
 
         .hero h1 {
@@ -168,6 +165,44 @@
             opacity: 0.8;
             max-width: 500px;
             margin: 0 auto;
+        }
+
+        /* Search Bar */
+        .search-container {
+            margin: 20px 0;
+            padding: 0 10px;
+        }
+
+        .search-box {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            border-radius: 50px;
+            border: none;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-size: 1rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .search-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--primary-color);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary-color);
+            font-size: 1.2rem;
         }
 
         /* Download Modal */
@@ -293,6 +328,11 @@
             overflow: hidden;
         }
         .watchapps-icon { background: linear-gradient(135deg, #000000, #FF0000); }
+        .duolingo-icon { 
+            background: linear-gradient(135deg, #000000, #58CC02); 
+            position: relative;
+            overflow: hidden;
+        }
 
         .option-details h3 {
             font-size: 1.1rem;
@@ -348,14 +388,14 @@
             background-color: rgba(255,255,255,0.1);
         }
 
-        /* App Detail Modal - Updated with blur effect */
+        /* App Detail Modal */
         .app-detail-modal {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: rgba(0, 0, 0, 0.8);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -364,7 +404,7 @@
             visibility: hidden;
             transition: all 0.3s ease;
             padding: 20px;
-            backdrop-filter: blur(15px);
+            backdrop-filter: blur(10px);
         }
 
         .app-detail-modal.active {
@@ -373,7 +413,7 @@
         }
 
         .app-detail-content {
-            background: rgba(255, 255, 255, 0.1);
+            background-color: var(--card-color);
             border-radius: 20px;
             padding: 25px;
             max-width: 500px;
@@ -382,8 +422,6 @@
             transform: translateY(20px);
             transition: transform 0.3s ease;
             position: relative;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .app-detail-modal.active .app-detail-content {
@@ -490,16 +528,13 @@
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
         }
 
-        /* Apps Section - Updated with staggered animation */
+        /* Apps Section */
         .apps-container {
             background-color: var(--card-color);
             border-radius: 16px;
             box-shadow: var(--shadow);
             padding: 20px;
             margin-bottom: 25px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s ease 0.3s forwards;
         }
 
         .apps-title {
@@ -525,13 +560,6 @@
             border-radius: 14px;
             transition: var(--transition);
             border: 1px solid rgba(255,255,255,0.1);
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .app-item.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         .app-item:hover {
@@ -597,6 +625,11 @@
             position: relative;
             overflow: hidden;
         }
+        .duolingo-icon { 
+            background: linear-gradient(135deg, #000000, #58CC02); 
+            position: relative;
+            overflow: hidden;
+        }
 
         .app-details h3 {
             font-size: 1.1rem;
@@ -637,9 +670,6 @@
             border-radius: 16px;
             box-shadow: var(--shadow);
             margin-bottom: 20px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s ease 0.6s forwards;
         }
 
         .about-section h2 {
@@ -673,9 +703,6 @@
             color: var(--text-color);
             opacity: 0.7;
             font-size: 0.85rem;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s ease 0.9s forwards;
         }
 
         /* Welcome Modal */
@@ -846,18 +873,6 @@
         .ai-control:hover {
             transform: scale(1.1);
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-        }
-
-        /* Animation Keyframes */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         /* Responsive Design */
@@ -1150,7 +1165,18 @@
 
         <section class="apps-container">
             <h2 class="apps-title">Available Applications</h2>
-            <div class="apps-list">
+            
+            <!-- Search Bar -->
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" class="search-input" id="appSearch" placeholder="Search for apps...">
+                    <div class="search-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="apps-list" id="appsList">
                 <!-- App 1 - WhatsApp -->
                 <div class="app-item">
                     <div class="app-info">
@@ -1291,7 +1317,21 @@
                     <button class="get-now-btn" data-app="thispc">Get Now</button>
                 </div>
 
-                <!-- App 11 - Cinema Tv Apps -->
+                <!-- App 11 - Duolingo -->
+                <div class="app-item">
+                    <div class="app-info">
+                        <div class="app-icon duolingo-icon">
+                            <img src="https://d35aaqx5ub95lt.cloudfront.net/images/f2a2e608c854822ad2563a09595e7827.png" alt="Duolingo">
+                        </div>
+                        <div class="app-details">
+                            <h3>Duolingo</h3>
+                            <p>Learn languages with enhanced features</p>
+                        </div>
+                    </div>
+                    <button class="get-now-btn" data-app="duolingo">Get Now</button>
+                </div>
+
+                <!-- App 12 - Cinema Tv Apps -->
                 <div class="app-item">
                     <div class="app-info">
                         <div class="app-icon watchapps-icon">
@@ -1305,7 +1345,7 @@
                     <button class="get-now-btn" data-app="watchapps">Get Now</button>
                 </div>
 
-                <!-- App 12 - iOS Apps -->
+                <!-- App 13 - iOS Apps -->
                 <div class="app-item">
                     <div class="app-info">
                         <div class="app-icon iosapps-icon">
@@ -1488,6 +1528,20 @@
                 iconImage: "https://thvnext.bing.com/th/id/OIP.1Yn781JF4tspKbsRPAsVRwHaHa?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
                 link: "https://m7ashr213-cell.github.io/iOS-Store-This-PC/"
             },
+            duolingo: {
+                title: "Duolingo",
+                description: "Learn languages with enhanced features and premium content",
+                features: [
+                    "All languages and courses unlocked",
+                    "Ad-free learning experience",
+                    "Unlimited hearts and streak freezes",
+                    "Offline mode for learning anywhere"
+                ],
+                iconClass: "fas fa-language",
+                iconColor: "duolingo-icon",
+                iconImage: "https://d35aaqx5ub95lt.cloudfront.net/images/f2a2e608c854822ad2563a09595e7827.png",
+                link: "https://m7ashr213-cell.github.io/iOS-Store-Duolingo/"
+            },
             watchapps: {
                 title: "Cinema Tv Apps",
                 description: "Movie and series streaming apps with premium activated",
@@ -1517,6 +1571,26 @@
                 link: "https://m7ashr213-cell.github.io/iOS-Store-iOS-Apps/"
             }
         };
+
+        // Search Functionality
+        const appSearch = document.getElementById('appSearch');
+        const appsList = document.getElementById('appsList');
+        const appItems = appsList.querySelectorAll('.app-item');
+
+        appSearch.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase().trim();
+            
+            appItems.forEach(item => {
+                const appName = item.querySelector('h3').textContent.toLowerCase();
+                const appDescription = item.querySelector('p').textContent.toLowerCase();
+                
+                if (appName.includes(searchTerm) || appDescription.includes(searchTerm)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
 
         // Audio Control
         const audioControl = document.getElementById('audioControl');
@@ -1719,14 +1793,6 @@
             setTimeout(() => {
                 speechSynthesis.getVoices();
             }, 100);
-            
-            // Animate app items one by one
-            const appItems = document.querySelectorAll('.app-item');
-            appItems.forEach((item, index) => {
-                setTimeout(() => {
-                    item.classList.add('visible');
-                }, 300 + (index * 100)); // Stagger the animation
-            });
         });
     </script>
 </body>
