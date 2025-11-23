@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iOS Store - Premium Apps</title>
+    <title>iOS Store - Premium Apps - By Mohamed Ashraf</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -662,38 +662,32 @@
             transform: translateY(-1px);
         }
 
-        /* About Section */
-        .about-section {
-            padding: 25px 20px;
-            text-align: center;
-            background-color: var(--card-color);
-            border-radius: 16px;
-            box-shadow: var(--shadow);
-            margin-bottom: 20px;
+        /* About Button */
+        .about-button-container {
+            display: flex;
+            justify-content: center;
+            margin: 25px 0;
         }
 
-        .about-section h2 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+        .about-btn {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 12px;
+            font-size: 1.1rem;
             font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .about-section p {
-            margin-bottom: 12px;
-            color: var(--text-color);
-            opacity: 0.8;
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-
-        .developer {
-            margin-top: 15px;
-            font-weight: 600;
-            color: var(--primary-color);
-            font-size: 0.95rem;
+        .about-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
 
         /* Footer */
@@ -721,6 +715,7 @@
             visibility: hidden;
             transition: all 0.3s ease;
             padding: 20px;
+            backdrop-filter: blur(10px);
         }
 
         .welcome-modal.active {
@@ -813,6 +808,74 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
         }
 
+        /* About Modal */
+        .about-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .about-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .about-modal .modal-content {
+            background-color: var(--card-color);
+            border-radius: 20px;
+            padding: 25px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .about-modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .about-content {
+            text-align: center;
+        }
+
+        .about-content h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 600;
+        }
+
+        .about-content p {
+            margin-bottom: 12px;
+            color: var(--text-color);
+            opacity: 0.8;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .developer {
+            margin-top: 15px;
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 0.95rem;
+        }
+
         /* Audio Control */
         .audio-control {
             position: fixed;
@@ -873,6 +936,193 @@
         .ai-control:hover {
             transform: scale(1.1);
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        /* NEW ANIMATIONS */
+        /* Animations for app items */
+        .app-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .app-item.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Slide animations for modals */
+        .modal-content, .app-detail-content {
+            transform: translateY(-50px) scale(0.9);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .download-modal.active .modal-content,
+        .app-detail-modal.active .app-detail-content,
+        .welcome-modal.active .modal-content,
+        .about-modal.active .modal-content {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+
+        /* Staggered animation for app items */
+        .app-item:nth-child(odd) {
+            transform: translateX(-50px);
+        }
+
+        .app-item:nth-child(even) {
+            transform: translateX(50px);
+        }
+
+        .app-item.animate:nth-child(odd),
+        .app-item.animate:nth-child(even) {
+            transform: translateX(0);
+        }
+
+        /* Hover animations */
+        .app-item:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important;
+        }
+
+        /* Button hover effects */
+        .get-now-btn, .download-btn, .app-detail-btn, .about-btn {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .get-now-btn:hover, .download-btn:hover, .app-detail-btn:hover, .about-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(10, 132, 255, 0.4);
+        }
+
+        /* Social icons animation */
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Logo animation */
+        .logo {
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        /* Search input animation */
+        .search-input {
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            transform: scale(1.02);
+            box-shadow: 0 0 0 2px var(--primary-color), 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* App icon animations */
+        .app-icon, .option-icon, .app-detail-icon {
+            transition: all 0.3s ease;
+        }
+
+        .app-icon:hover, .option-icon:hover, .app-detail-icon:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Loading animation for buttons */
+        .get-now-btn.loading, .download-btn.loading {
+            position: relative;
+            color: transparent;
+        }
+
+        .get-now-btn.loading::after, .download-btn.loading::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 50%;
+            left: 50%;
+            margin-left: -10px;
+            margin-top: -10px;
+            border: 2px solid transparent;
+            border-top: 2px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Floating animation for audio control */
+        .audio-control, .ai-control {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Page load animation */
+        .container {
+            animation: pageLoad 0.8s ease-out;
+        }
+
+        @keyframes pageLoad {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Enhanced app item styling */
+        .app-item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .app-item:hover::after {
+            left: 100%;
+        }
+
+        /* Enhanced modal backdrop */
+        .download-modal, .app-detail-modal, .welcome-modal, .about-modal {
+            backdrop-filter: blur(10px);
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Enhanced focus states */
+        button:focus, a:focus, input:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
         }
 
         /* Responsive Design */
@@ -1002,6 +1252,11 @@
             .ai-control {
                 bottom: 75px;
             }
+
+            .about-btn {
+                padding: 12px 24px;
+                font-size: 1rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1053,6 +1308,11 @@
             .download-btn {
                 align-self: flex-end;
             }
+
+            .about-btn {
+                width: 100%;
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -1083,9 +1343,27 @@
         </div>
     </div>
 
+    <!-- About Modal -->
+    <div class="about-modal" id="aboutModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeAboutModal">&times;</button>
+            <div class="about-content">
+                <h2>About iOS Store</h2>
+                <p>
+                    iOS Store is your premier destination for getting the best modified and premium applications for iOS. 
+                    We offer a variety of free apps with additional features not available in standard versions. 
+                </p>
+                <p>
+                    We continuously work on updating applications to ensure compatibility with the latest iOS versions and provide the best user experience.
+                </p>
+                <p class="developer">Developer: Mohamed Ashraf</p>
+            </div>
+        </div>
+    </div>
+
     <!-- AI Assistant Control Button -->
     <a href="https://m7ashr213-cell.github.io/Ai-iOS-STORE/" class="ai-control" id="aiControl" target="_blank">
-        <img src="https://tse3.mm.bing.net/th/id/OIP.1TXUHdZSxaRpZBE7X85zBAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="AI Assistant">
+        <img src="https://inoxoft.com/wp-content/uploads/2024/05/Cover-12.jpg" alt="AI Assistant">
     </a>
 
     <!-- Audio Control Button -->
@@ -1361,17 +1639,12 @@
             </div>
         </section>
 
-        <section class="about-section">
-            <h2>About iOS Store</h2>
-            <p>
-                iOS Store is your premier destination for getting the best modified and premium applications for iOS. 
-                We offer a variety of free apps with additional features not available in standard versions. 
-            </p>
-            <p>
-                We continuously work on updating applications to ensure compatibility with the latest iOS versions and provide the best user experience.
-            </p>
-            <p class="developer">Developer: Mohamed Ashraf</p>
-        </section>
+        <!-- About Button -->
+        <div class="about-button-container">
+            <button class="about-btn" id="aboutBtn">
+                <i class="fas fa-info-circle"></i> About iOS Store
+            </button>
+        </div>
 
         <footer>
             <p>© Mohamed Ashraf . All rights reserved.</p>
@@ -1572,6 +1845,144 @@
             }
         };
 
+        // NEW ANIMATION FUNCTIONS
+        // Animation functions
+        function animateOnScroll() {
+            const appItems = document.querySelectorAll('.app-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Add delay based on index for staggered animation
+                        const index = Array.from(appItems).indexOf(entry.target);
+                        setTimeout(() => {
+                            entry.target.classList.add('animate');
+                        }, index * 100);
+                        
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            
+            appItems.forEach(item => {
+                observer.observe(item);
+            });
+        }
+
+        // Button loading animation
+        function addButtonLoading(button) {
+            button.classList.add('loading');
+            setTimeout(() => {
+                button.classList.remove('loading');
+            }, 1500);
+        }
+
+        // Initialize animations when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate app items on scroll
+            animateOnScroll();
+            
+            // Add loading animation to buttons
+            const buttons = document.querySelectorAll('.get-now-btn, .download-btn');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    addButtonLoading(this);
+                });
+            });
+            
+            // Animate header on load
+            const header = document.querySelector('header');
+            header.style.opacity = '0';
+            header.style.transform = 'translateY(-20px)';
+            
+            setTimeout(() => {
+                header.style.transition = 'all 0.6s ease-out';
+                header.style.opacity = '1';
+                header.style.transform = 'translateY(0)';
+            }, 300);
+            
+            // Animate hero section
+            const hero = document.querySelector('.hero');
+            hero.style.opacity = '0';
+            hero.style.transform = 'translateY(30px)';
+            
+            setTimeout(() => {
+                hero.style.transition = 'all 0.8s ease-out';
+                hero.style.opacity = '1';
+                hero.style.transform = 'translateY(0)';
+            }, 500);
+        });
+
+        // Enhanced modal animations
+        function enhanceModalAnimations() {
+            const modals = document.querySelectorAll('.download-modal, .app-detail-modal, .welcome-modal, .about-modal');
+            
+            modals.forEach(modal => {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        this.classList.remove('active');
+                    }
+                });
+            });
+        }
+
+        // Call the function
+        enhanceModalAnimations();
+
+        // Search animation
+        const searchInput = document.getElementById('appSearch');
+        searchInput.addEventListener('focus', function() {
+            this.parentElement.style.transform = 'scale(1.02)';
+        });
+
+        searchInput.addEventListener('blur', function() {
+            this.parentElement.style.transform = 'scale(1)';
+        });
+
+        // Theme toggle animation
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', function() {
+            this.style.transform = 'rotate(180deg)';
+            setTimeout(() => {
+                this.style.transform = 'rotate(0deg)';
+            }, 300);
+        });
+
+        // Social icons hover effects
+        const socialIcons = document.querySelectorAll('.social-icon');
+        socialIcons.forEach(icon => {
+            icon.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.1)';
+            });
+            
+            icon.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // About Button Functionality
+        const aboutBtn = document.getElementById('aboutBtn');
+        const aboutModal = document.getElementById('aboutModal');
+        const closeAboutModal = document.getElementById('closeAboutModal');
+
+        aboutBtn.addEventListener('click', () => {
+            aboutModal.classList.add('active');
+        });
+
+        closeAboutModal.addEventListener('click', () => {
+            aboutModal.classList.remove('active');
+        });
+
+        aboutModal.addEventListener('click', (e) => {
+            if (e.target === aboutModal) {
+                aboutModal.classList.remove('active');
+            }
+        });
+
+        // EXISTING FUNCTIONALITY
         // Search Functionality
         const appSearch = document.getElementById('appSearch');
         const appsList = document.getElementById('appsList');
@@ -1646,7 +2057,6 @@
         });
 
         // Theme Toggle
-        const themeToggle = document.getElementById('themeToggle');
         const body = document.body;
         
         themeToggle.addEventListener('click', () => {
