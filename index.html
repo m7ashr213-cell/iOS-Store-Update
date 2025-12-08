@@ -12,7 +12,7 @@
         }
 
         body {
-            background-color: #000000;
+            background-color: #0a192f;
             overflow: hidden;
             height: 100vh;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
@@ -30,13 +30,13 @@
 
         /* المرحلة الأولى: الخطوط الضوئية */
         #linesStage {
-            background-color: #000000;
+            background-color: #0a192f;
             z-index: 10;
         }
 
-        /* المرحلة الثانية: ظهور اللوجو */
-        #logoStage {
-            background-color: #000000;
+        /* المرحلة الثانية: ظهور الصورة والنص */
+        #imageStage {
+            background-color: #0a192f;
             z-index: 20;
             display: none;
             flex-direction: column;
@@ -53,7 +53,7 @@
 
         .light-line {
             position: absolute;
-            background: linear-gradient(to center, rgba(0, 40, 85, 0.2) 0%, #003366 40%, #001a33 60%, rgba(0, 40, 85, 0.2) 100%);
+            background: linear-gradient(to center, rgba(0, 40, 85, 0.2) 0%, #1e3a8a 40%, #0a192f 60%, rgba(0, 40, 85, 0.2) 100%);
             filter: blur(0.5px);
             border-radius: 1px;
             opacity: 0;
@@ -196,134 +196,47 @@
             transform-origin: top center;
         }
 
-        /* النقطة المركزية */
-        .center-point {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 6px;
-            height: 6px;
-            background-color: #007AFF;
-            border-radius: 50%;
-            box-shadow: 
-                0 0 20px 5px #007AFF,
-                0 0 40px 10px #0055CC,
-                0 0 60px 15px rgba(0, 85, 204, 0.5);
-            opacity: 0;
-            z-index: 5;
-        }
-
-        /* اللوجو */
-        .logo-container {
+        /* حاوية الصورة والنص */
+        .content-container {
             text-align: center;
             opacity: 0;
             transform: scale(0.8);
         }
 
-        .iphone-frame {
-            position: relative;
-            width: 180px;
-            height: 360px;
-            margin: 0 auto 30px;
-            border-radius: 40px;
-            background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
-            border: 8px solid #333;
+        .main-image {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            opacity: 0;
+            transform: scale(0);
+            border-radius: 50%;
             box-shadow: 
-                0 0 0 1px #444,
-                0 20px 50px rgba(0, 0, 0, 0.8),
-                inset 0 0 30px rgba(0, 122, 255, 0.1);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
+                0 0 40px rgba(30, 58, 138, 0.5),
+                0 0 80px rgba(30, 58, 138, 0.3),
+                0 0 120px rgba(30, 58, 138, 0.1);
+            border: 3px solid rgba(30, 58, 138, 0.5);
         }
 
-        .iphone-screen {
-            width: 160px;
-            height: 340px;
-            background: linear-gradient(135deg, #001833, #000d1a);
-            border-radius: 25px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .iphone-notch {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 25px;
-            background-color: #000;
-            border-bottom-left-radius: 15px;
-            border-bottom-right-radius: 15px;
-            z-index: 2;
-        }
-
-        .iphone-logo {
-            font-size: 48px;
-            color: #007AFF;
-            margin-bottom: 15px;
-            text-shadow: 
-                0 0 20px rgba(0, 122, 255, 0.7),
-                0 0 40px rgba(0, 122, 255, 0.4);
-        }
-
-        .logo-text {
-            font-size: 42px;
-            font-weight: 900;
-            background: linear-gradient(to bottom, #007AFF, #00BFFF);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 
-                0 0 30px rgba(0, 122, 255, 0.6),
-                0 0 60px rgba(0, 122, 255, 0.3);
-            letter-spacing: -1px;
-            margin-bottom: 10px;
-        }
-
-        .logo-subtitle {
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.7);
-            text-shadow: 0 0 10px rgba(0, 122, 255, 0.5);
-            margin-top: 5px;
-        }
-
-        /* شريط التحميل */
-        .loading-container {
-            width: 250px;
+        .welcome-container {
             margin-top: 30px;
             opacity: 0;
         }
 
-        .loading-text {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 14px;
-            text-align: center;
-            margin-bottom: 10px;
+        .welcome-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: #60a5fa;
+            text-shadow: 
+                0 0 15px rgba(96, 165, 250, 0.6),
+                0 0 30px rgba(96, 165, 250, 0.3);
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
         }
 
-        .loading-bar {
-            width: 100%;
-            height: 3px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 2px;
-            overflow: hidden;
-        }
-
-        .loading-progress {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(to right, #003366, #007AFF, #00BFFF);
-            border-radius: 2px;
-            transition: width 0.3s ease;
-            box-shadow: 0 0 10px rgba(0, 122, 255, 0.5);
+        .subtitle {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            text-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
         }
 
         /* التأثيرات البصرية */
@@ -339,7 +252,7 @@
             position: absolute;
             width: 2px;
             height: 2px;
-            background-color: rgba(0, 122, 255, 0.6);
+            background-color: rgba(96, 165, 250, 0.6);
             border-radius: 50%;
             animation: float 4s infinite ease-in-out;
         }
@@ -359,29 +272,29 @@
         @keyframes pulse {
             0%, 100% {
                 box-shadow: 
-                    0 0 20px 5px #007AFF,
-                    0 0 40px 10px #0055CC,
-                    0 0 60px 15px rgba(0, 85, 204, 0.5);
+                    0 0 20px 5px #60a5fa,
+                    0 0 40px 10px #3b82f6,
+                    0 0 60px 15px rgba(59, 130, 246, 0.5);
             }
             50% {
                 box-shadow: 
-                    0 0 25px 7px #007AFF,
-                    0 0 50px 15px #0055CC,
-                    0 0 80px 20px rgba(0, 85, 204, 0.7);
+                    0 0 25px 7px #60a5fa,
+                    0 0 50px 15px #3b82f6,
+                    0 0 80px 20px rgba(59, 130, 246, 0.7);
             }
         }
 
         @keyframes glow {
             0%, 100% {
                 text-shadow: 
-                    0 0 30px rgba(0, 122, 255, 0.6),
-                    0 0 60px rgba(0, 122, 255, 0.3);
+                    0 0 20px rgba(96, 165, 250, 0.6),
+                    0 0 40px rgba(96, 165, 250, 0.3);
             }
             50% {
                 text-shadow: 
-                    0 0 40px rgba(0, 122, 255, 0.8),
-                    0 0 80px rgba(0, 122, 255, 0.5),
-                    0 0 120px rgba(0, 122, 255, 0.2);
+                    0 0 30px rgba(96, 165, 250, 0.8),
+                    0 0 60px rgba(96, 165, 250, 0.5),
+                    0 0 90px rgba(96, 165, 250, 0.2);
             }
         }
 
@@ -394,48 +307,32 @@
 
         /* التجاوب مع الشاشات */
         @media (max-width: 768px) {
-            .iphone-frame {
-                width: 150px;
-                height: 300px;
+            .main-image {
+                width: 180px;
+                height: 180px;
             }
             
-            .iphone-screen {
-                width: 134px;
-                height: 284px;
+            .welcome-text {
+                font-size: 20px;
             }
             
-            .logo-text {
-                font-size: 36px;
-            }
-            
-            .logo-subtitle {
-                font-size: 16px;
+            .subtitle {
+                font-size: 14px;
             }
         }
 
         @media (max-width: 480px) {
-            .iphone-frame {
-                width: 130px;
-                height: 260px;
-                border-radius: 30px;
+            .main-image {
+                width: 160px;
+                height: 160px;
             }
             
-            .iphone-screen {
-                width: 116px;
-                height: 246px;
-                border-radius: 20px;
+            .welcome-text {
+                font-size: 18px;
             }
             
-            .logo-text {
-                font-size: 30px;
-            }
-            
-            .logo-subtitle {
-                font-size: 14px;
-            }
-            
-            .iphone-logo {
-                font-size: 36px;
+            .subtitle {
+                font-size: 13px;
             }
         }
     </style>
@@ -466,31 +363,23 @@
             <div class="light-line line-right-top" id="lineRT"></div>
             <div class="light-line line-right-bottom" id="lineRB"></div>
         </div>
-        
-        <div class="center-point" id="centerPoint"></div>
     </div>
     
-    <!-- المرحلة الثانية: اللوجو -->
-    <div class="container" id="logoStage">
+    <!-- المرحلة الثانية: الصورة والنص -->
+    <div class="container" id="imageStage">
         <div class="particles" id="particles"></div>
         
-        <div class="logo-container" id="logoContainer">
-            <!-- تصميم الآيفون -->
-            <div class="iphone-frame">
-                <div class="iphone-notch"></div>
-                <div class="iphone-screen">
-                    <div class="iphone-logo"></div>
-                    <div class="logo-text">iOS STORE</div>
-                    <div class="logo-subtitle">By Mohamed Ashraf</div>
-                </div>
-            </div>
+        <div class="content-container" id="contentContainer">
+            <!-- الصورة الرئيسية -->
+            <img src="https://imagedelivery.net/tqC70bVt8T6GtQUXNsa2-g/afc9affa-34fb-48e4-211d-b5587301e700/public" 
+                 alt="iOS Store" 
+                 class="main-image" 
+                 id="mainImage">
             
-            <!-- شريط التحميل -->
-            <div class="loading-container" id="loadingContainer">
-                <div class="loading-text">Welcome Back</div>
-                <div class="loading-bar">
-                    <div class="loading-progress" id="loadingProgress"></div>
-                </div>
+            <!-- نص الترحيب -->
+            <div class="welcome-container" id="welcomeContainer">
+                <div class="welcome-text">Welcome Back to iOS Store</div>
+                <div class="subtitle">we wish you a good experience</div>
             </div>
         </div>
     </div>
@@ -498,11 +387,10 @@
     <script>
         // عناصر DOM
         const linesStage = document.getElementById('linesStage');
-        const logoStage = document.getElementById('logoStage');
-        const centerPoint = document.getElementById('centerPoint');
-        const logoContainer = document.getElementById('logoContainer');
-        const loadingContainer = document.getElementById('loadingContainer');
-        const loadingProgress = document.getElementById('loadingProgress');
+        const imageStage = document.getElementById('imageStage');
+        const contentContainer = document.getElementById('contentContainer');
+        const mainImage = document.getElementById('mainImage');
+        const welcomeContainer = document.getElementById('welcomeContainer');
         const particlesContainer = document.getElementById('particles');
         
         // قائمة بجميع الخطوط
@@ -515,7 +403,7 @@
         
         // إنشاء الجسيمات
         function createParticles() {
-            const particleCount = 80;
+            const particleCount = 60;
             
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
@@ -538,7 +426,7 @@
                 
                 // لون أزرق عشوائي
                 const blueValue = 100 + Math.floor(Math.random() * 155);
-                particle.style.backgroundColor = `rgba(0, ${blueValue}, 255, ${opacity})`;
+                particle.style.backgroundColor = `rgba(96, 165, 250, ${opacity})`;
                 
                 // مدة عشوائية للأنيميشن
                 const duration = 3 + Math.random() * 5;
@@ -556,8 +444,8 @@
                 // تأخير مختلف لكل خط
                 setTimeout(() => {
                     // إظهار الخط
-                    line.style.transition = 'opacity 0.5s ease-out, height 0.5s ease-out, width 0.5s ease-out';
-                    line.style.opacity = '0.9';
+                    line.style.transition = 'opacity 0.4s ease-out, height 0.4s ease-out, width 0.4s ease-out';
+                    line.style.opacity = '0.8';
                     
                     // تحديد الطول الأولي حسب نوع الخط
                     if (lineId.includes('top') || lineId.includes('bottom') || lineId.includes('diagonal')) {
@@ -575,22 +463,17 @@
                     // بعد ظهور الخط، نجذبه نحو المركز
                     setTimeout(() => {
                         pullLineToCenter(lineId);
-                    }, 800 + (index * 100));
+                    }, 400 + (index * 80));
                     
-                }, index * 100);
+                }, index * 80);
             });
-            
-            // بعد ظهور كل الخطوط، نظهر النقطة المركزية
-            setTimeout(() => {
-                showCenterPoint();
-            }, 2000);
         }
         
         // جذب الخط نحو المركز
         function pullLineToCenter(lineId) {
             const line = document.getElementById(lineId);
             
-            line.style.transition = 'all 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55)';
+            line.style.transition = 'all 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55)';
             
             // تقليل حجم الخط تدريجياً نحو المركز
             if (lineId.includes('top') || lineId.includes('bottom') || lineId.includes('diagonal')) {
@@ -608,91 +491,54 @@
             line.style.opacity = '0';
         }
         
-        // إظهار النقطة المركزية
-        function showCenterPoint() {
-            centerPoint.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
-            centerPoint.style.opacity = '1';
-            
-            // جعل النقطة المركزية تومض
-            centerPoint.style.animation = 'pulse 1.5s infinite alternate';
-            
-            // تكبير النقطة المركزية
-            setTimeout(() => {
-                centerPoint.style.transform = 'translate(-50%, -50%) scale(3)';
-                centerPoint.style.opacity = '0.8';
-                
-                // الانتقال للمرحلة الثانية بعد تأخير
-                setTimeout(() => {
-                    showLogoStage();
-                }, 1000);
-            }, 500);
-        }
-        
-        // المرحلة 2: إظهار اللوجو
-        function showLogoStage() {
+        // المرحلة 2: إظهار الصورة والنص
+        function showImageStage() {
             // إخفاء مرحلة الخطوط
             linesStage.style.opacity = '0';
-            linesStage.style.transition = 'opacity 0.8s ease-out';
+            linesStage.style.transition = 'opacity 0.6s ease-out';
             
-            // إظهار مرحلة اللوجو
+            // إظهار مرحلة الصورة
             setTimeout(() => {
                 linesStage.style.display = 'none';
-                logoStage.style.display = 'flex';
+                imageStage.style.display = 'flex';
                 
                 // إنشاء الجسيمات
                 createParticles();
                 
-                // إظهار اللوجو بتأثير
+                // إظهار المحتوى بتأثير
                 setTimeout(() => {
-                    logoContainer.style.transition = 'opacity 1.2s ease-out, transform 1.2s ease-out';
-                    logoContainer.style.opacity = '1';
-                    logoContainer.style.transform = 'scale(1)';
+                    contentContainer.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+                    contentContainer.style.opacity = '1';
+                    contentContainer.style.transform = 'scale(1)';
                     
-                    // إظهار شريط التحميل
+                    // إظهار الصورة بتأثير من العدم
                     setTimeout(() => {
-                        loadingContainer.style.transition = 'opacity 1s ease-out';
-                        loadingContainer.style.opacity = '1';
+                        mainImage.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+                        mainImage.style.opacity = '1';
+                        mainImage.style.transform = 'scale(1)';
                         
-                        // بدء التحميل
-                        startLoading();
-                    }, 500);
-                }, 300);
-            }, 800);
-        }
-        
-        // بدء شريط التحميل
-        function startLoading() {
-            let progress = 0;
-            
-            const interval = setInterval(() => {
-                progress += Math.random() * 8 + 4;
-                if (progress > 100) {
-                    progress = 100;
-                    clearInterval(interval);
-                    
-                    // الانتقال للموقع بعد اكتمال التحميل
-                    setTimeout(() => {
-                        window.location.href = 'https://m7ashr213-cell.github.io/iOS-Store10';
-                    }, 800);
-                }
-                
-                loadingProgress.style.width = `${progress}%`;
-                
-                // تغيير اللون حسب النسبة
-                if (progress < 30) {
-                    loadingProgress.style.background = 'linear-gradient(to right, #001a33, #003366)';
-                } else if (progress < 70) {
-                    loadingProgress.style.background = 'linear-gradient(to right, #003366, #007AFF)';
-                } else {
-                    loadingProgress.style.background = 'linear-gradient(to right, #007AFF, #00BFFF)';
-                }
-            }, 200);
+                        // إظهار النص بعد ظهور الصورة
+                        setTimeout(() => {
+                            welcomeContainer.style.transition = 'opacity 0.6s ease-out';
+                            welcomeContainer.style.opacity = '1';
+                            
+                            // الانتقال للموقع بعد ثانيتين
+                            setTimeout(() => {
+                                window.location.href = 'https://m7ashr213-cell.github.io/iOS-Store10';
+                            }, 2000);
+                        }, 300);
+                    }, 200);
+                }, 200);
+            }, 600);
         }
         
         // بدء الإسبلاش عند تحميل الصفحة
         window.addEventListener('load', () => {
             // بدء المرحلة الأولى بعد تأخير بسيط
-            setTimeout(showLightLines, 500);
+            setTimeout(showLightLines, 300);
+            
+            // الانتقال للمرحلة الثانية بعد ثانيتين
+            setTimeout(showImageStage, 2000);
         });
         
         // إضافة تأثير تفاعلي عند تحريك الماوس (للمرحلة الثانية فقط)
@@ -703,9 +549,9 @@
                 const y = e.clientY / window.innerHeight;
                 
                 particles.forEach((particle, index) => {
-                    const speed = 0.3;
-                    const xOffset = (x - 0.5) * 30 * speed;
-                    const yOffset = (y - 0.5) * 30 * speed;
+                    const speed = 0.2;
+                    const xOffset = (x - 0.5) * 20 * speed;
+                    const yOffset = (y - 0.5) * 20 * speed;
                     
                     particle.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
                 });
